@@ -1,0 +1,1914 @@
+<!DOCTYPE html>
+<!-- saved from url=(0064)https://learn.nucamp.co/mod/book/view.php?id=5104&chapterid=5235 -->
+<html dir="ltr" lang="en" xml:lang="en" class="yui3-js-enabled"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Team Development with Git: Exercise: Collaborating in Git &amp; GitHub - Part 1: Setup</title>
+    <link rel="icon" href="https://learn.nucamp.co/pluginfile.php/1/core_admin/favicon/64x64/1687113448/favicon-196x196.png">
+
+
+<meta name="keywords" content="moodle, Team Development with Git: Exercise: Collaborating in Git &amp; GitHub - Part 1: Setup">
+<link rel="stylesheet" type="text/css" href="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/combo"><script charset="utf-8" id="yui_3_17_2_1_1687521431813_8" src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/combo(1)" async=""></script><link charset="utf-8" rel="stylesheet" id="yui_3_17_2_1_1687521431813_19" href="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/combo(2)"><script charset="utf-8" id="yui_3_17_2_1_1687521431813_20" src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/combo(3)" async=""></script><script id="firstthemesheet" type="text/css">/** Required in order to fix style inclusion problems in IE with YUI **/</script><link rel="stylesheet" type="text/css" href="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/styles.php">
+<script>
+//<![CDATA[
+var M = {}; M.yui = {};
+M.pageloadstarttime = new Date();
+M.cfg = {"wwwroot":"https:\/\/learn.nucamp.co","homeurl":{},"sesskey":"hshYs68HXk","sessiontimeout":"86400","sessiontimeoutwarning":1200,"themerev":"1687113448","slasharguments":1,"theme":"adaptable","iconsystemmodule":"core\/icon_system_fontawesome","jsrev":"1687113448","admin":"admin","svgicons":true,"usertimezone":"America\/New_York","courseId":31,"courseContextId":72567,"contextid":88932,"contextInstanceId":5104,"langrev":1687113448,"templaterev":"1687113448"};var yui1ConfigFn = function(me) {if(/-skin|reset|fonts|grids|base/.test(me.name)){me.type='css';me.path=me.path.replace(/\.js/,'.css');me.path=me.path.replace(/\/yui2-skin/,'/assets/skins/sam/yui2-skin')}};
+var yui2ConfigFn = function(me) {var parts=me.name.replace(/^moodle-/,'').split('-'),component=parts.shift(),module=parts[0],min='-min';if(/-(skin|core)$/.test(me.name)){parts.pop();me.type='css';min=''}
+if(module){var filename=parts.join('-');me.path=component+'/'+module+'/'+filename+min+'.'+me.type}else{me.path=component+'/'+component+'.'+me.type}};
+YUI_config = {"debug":false,"base":"https:\/\/learn.nucamp.co\/lib\/yuilib\/3.17.2\/","comboBase":"https:\/\/learn.nucamp.co\/theme\/yui_combo.php?","combine":true,"filter":null,"insertBefore":"firstthemesheet","groups":{"yui2":{"base":"https:\/\/learn.nucamp.co\/lib\/yuilib\/2in3\/2.9.0\/build\/","comboBase":"https:\/\/learn.nucamp.co\/theme\/yui_combo.php?","combine":true,"ext":false,"root":"2in3\/2.9.0\/build\/","patterns":{"yui2-":{"group":"yui2","configFn":yui1ConfigFn}}},"moodle":{"name":"moodle","base":"https:\/\/learn.nucamp.co\/theme\/yui_combo.php?m\/1687113448\/","combine":true,"comboBase":"https:\/\/learn.nucamp.co\/theme\/yui_combo.php?","ext":false,"root":"m\/1687113448\/","patterns":{"moodle-":{"group":"moodle","configFn":yui2ConfigFn}},"filter":null,"modules":{"moodle-core-actionmenu":{"requires":["base","event","node-event-simulate"]},"moodle-core-blocks":{"requires":["base","node","io","dom","dd","dd-scroll","moodle-core-dragdrop","moodle-core-notification"]},"moodle-core-chooserdialogue":{"requires":["base","panel","moodle-core-notification"]},"moodle-core-dragdrop":{"requires":["base","node","io","dom","dd","event-key","event-focus","moodle-core-notification"]},"moodle-core-event":{"requires":["event-custom"]},"moodle-core-formchangechecker":{"requires":["base","event-focus","moodle-core-event"]},"moodle-core-handlebars":{"condition":{"trigger":"handlebars","when":"after"}},"moodle-core-languninstallconfirm":{"requires":["base","node","moodle-core-notification-confirm","moodle-core-notification-alert"]},"moodle-core-lockscroll":{"requires":["plugin","base-build"]},"moodle-core-maintenancemodetimer":{"requires":["base","node"]},"moodle-core-notification":{"requires":["moodle-core-notification-dialogue","moodle-core-notification-alert","moodle-core-notification-confirm","moodle-core-notification-exception","moodle-core-notification-ajaxexception"]},"moodle-core-notification-dialogue":{"requires":["base","node","panel","escape","event-key","dd-plugin","moodle-core-widget-focusafterclose","moodle-core-lockscroll"]},"moodle-core-notification-alert":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-notification-confirm":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-notification-exception":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-notification-ajaxexception":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-popuphelp":{"requires":["moodle-core-tooltip"]},"moodle-core-tooltip":{"requires":["base","node","io-base","moodle-core-notification-dialogue","json-parse","widget-position","widget-position-align","event-outside","cache-base"]},"moodle-core_availability-form":{"requires":["base","node","event","event-delegate","panel","moodle-core-notification-dialogue","json"]},"moodle-backup-backupselectall":{"requires":["node","event","node-event-simulate","anim"]},"moodle-backup-confirmcancel":{"requires":["node","node-event-simulate","moodle-core-notification-confirm"]},"moodle-course-categoryexpander":{"requires":["node","event-key"]},"moodle-course-dragdrop":{"requires":["base","node","io","dom","dd","dd-scroll","moodle-core-dragdrop","moodle-core-notification","moodle-course-coursebase","moodle-course-util"]},"moodle-course-management":{"requires":["base","node","io-base","moodle-core-notification-exception","json-parse","dd-constrain","dd-proxy","dd-drop","dd-delegate","node-event-delegate"]},"moodle-course-util":{"requires":["node"],"use":["moodle-course-util-base"],"submodules":{"moodle-course-util-base":{},"moodle-course-util-section":{"requires":["node","moodle-course-util-base"]},"moodle-course-util-cm":{"requires":["node","moodle-course-util-base"]}}},"moodle-form-dateselector":{"requires":["base","node","overlay","calendar"]},"moodle-form-passwordunmask":{"requires":[]},"moodle-form-shortforms":{"requires":["node","base","selector-css3","moodle-core-event"]},"moodle-question-chooser":{"requires":["moodle-core-chooserdialogue"]},"moodle-question-preview":{"requires":["base","dom","event-delegate","event-key","core_question_engine"]},"moodle-question-searchform":{"requires":["base","node"]},"moodle-availability_completion-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-availability_date-form":{"requires":["base","node","event","io","moodle-core_availability-form"]},"moodle-availability_grade-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-availability_group-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-availability_grouping-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-availability_password-form":{"requires":["base","node","event","event-valuechange","moodle-core_availability-form"]},"moodle-availability_password-popup":{"requires":["base","node","event","moodle-core-notification-dialogue","io-base"]},"moodle-availability_profile-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-mod_assign-history":{"requires":["node","transition"]},"moodle-mod_quiz-autosave":{"requires":["base","node","event","event-valuechange","node-event-delegate","io-form"]},"moodle-mod_quiz-dragdrop":{"requires":["base","node","io","dom","dd","dd-scroll","moodle-core-dragdrop","moodle-core-notification","moodle-mod_quiz-quizbase","moodle-mod_quiz-util-base","moodle-mod_quiz-util-page","moodle-mod_quiz-util-slot","moodle-course-util"]},"moodle-mod_quiz-modform":{"requires":["base","node","event"]},"moodle-mod_quiz-questionchooser":{"requires":["moodle-core-chooserdialogue","moodle-mod_quiz-util","querystring-parse"]},"moodle-mod_quiz-quizbase":{"requires":["base","node"]},"moodle-mod_quiz-toolboxes":{"requires":["base","node","event","event-key","io","moodle-mod_quiz-quizbase","moodle-mod_quiz-util-slot","moodle-core-notification-ajaxexception"]},"moodle-mod_quiz-util":{"requires":["node","moodle-core-actionmenu"],"use":["moodle-mod_quiz-util-base"],"submodules":{"moodle-mod_quiz-util-base":{},"moodle-mod_quiz-util-slot":{"requires":["node","moodle-mod_quiz-util-base"]},"moodle-mod_quiz-util-page":{"requires":["node","moodle-mod_quiz-util-base"]}}},"moodle-message_airnotifier-toolboxes":{"requires":["base","node","io"]},"moodle-block_xp-filters":{"requires":["base","node","moodle-core-dragdrop","moodle-core-notification-confirm","moodle-block_xp-rulepicker"]},"moodle-block_xp-notification":{"requires":["base","node","handlebars","button-plugin","moodle-core-notification-dialogue"]},"moodle-block_xp-rulepicker":{"requires":["base","node","handlebars","moodle-core-notification-dialogue"]},"moodle-filter_glossary-autolinker":{"requires":["base","node","io-base","json-parse","event-delegate","overlay","moodle-core-event","moodle-core-notification-alert","moodle-core-notification-exception","moodle-core-notification-ajaxexception"]},"moodle-filter_mathjaxloader-loader":{"requires":["moodle-core-event"]},"moodle-editor_atto-editor":{"requires":["node","transition","io","overlay","escape","event","event-simulate","event-custom","node-event-html5","node-event-simulate","yui-throttle","moodle-core-notification-dialogue","moodle-core-notification-confirm","moodle-editor_atto-rangy","handlebars","timers","querystring-stringify"]},"moodle-editor_atto-plugin":{"requires":["node","base","escape","event","event-outside","handlebars","event-custom","timers","moodle-editor_atto-menu"]},"moodle-editor_atto-menu":{"requires":["moodle-core-notification-dialogue","node","event","event-custom"]},"moodle-editor_atto-rangy":{"requires":[]},"moodle-report_eventlist-eventfilter":{"requires":["base","event","node","node-event-delegate","datatable","autocomplete","autocomplete-filters"]},"moodle-report_loglive-fetchlogs":{"requires":["base","event","node","io","node-event-delegate"]},"moodle-gradereport_history-userselector":{"requires":["escape","event-delegate","event-key","handlebars","io-base","json-parse","moodle-core-notification-dialogue"]},"moodle-qbank_editquestion-chooser":{"requires":["moodle-core-chooserdialogue"]},"moodle-tool_capability-search":{"requires":["base","node"]},"moodle-tool_lp-dragdrop-reorder":{"requires":["moodle-core-dragdrop"]},"moodle-tool_monitor-dropdown":{"requires":["base","event","node"]},"moodle-assignfeedback_editpdf-editor":{"requires":["base","event","node","io","graphics","json","event-move","event-resize","transition","querystring-stringify-simple","moodle-core-notification-dialog","moodle-core-notification-alert","moodle-core-notification-warning","moodle-core-notification-exception","moodle-core-notification-ajaxexception"]},"moodle-atto_accessibilitychecker-button":{"requires":["color-base","moodle-editor_atto-plugin"]},"moodle-atto_accessibilityhelper-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_align-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_bold-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_charmap-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_clear-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_collapse-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_emojipicker-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_emoticon-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_equation-button":{"requires":["moodle-editor_atto-plugin","moodle-core-event","io","event-valuechange","tabview","array-extras"]},"moodle-atto_h5p-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_html-beautify":{},"moodle-atto_html-button":{"requires":["promise","moodle-editor_atto-plugin","moodle-atto_html-beautify","moodle-atto_html-codemirror","event-valuechange"]},"moodle-atto_html-codemirror":{"requires":["moodle-atto_html-codemirror-skin"]},"moodle-atto_image-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_indent-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_italic-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_link-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_managefiles-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_managefiles-usedfiles":{"requires":["node","escape"]},"moodle-atto_media-button":{"requires":["moodle-editor_atto-plugin","moodle-form-shortforms"]},"moodle-atto_noautolink-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_orderedlist-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_recordrtc-button":{"requires":["moodle-editor_atto-plugin","moodle-atto_recordrtc-recording"]},"moodle-atto_recordrtc-recording":{"requires":["moodle-atto_recordrtc-button"]},"moodle-atto_rtl-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_strike-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_subscript-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_superscript-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_table-button":{"requires":["moodle-editor_atto-plugin","moodle-editor_atto-menu","event","event-valuechange"]},"moodle-atto_title-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_underline-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_undo-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_unorderedlist-button":{"requires":["moodle-editor_atto-plugin"]}}},"gallery":{"name":"gallery","base":"https:\/\/learn.nucamp.co\/lib\/yuilib\/gallery\/","combine":true,"comboBase":"https:\/\/learn.nucamp.co\/theme\/yui_combo.php?","ext":false,"root":"gallery\/1687113448\/","patterns":{"gallery-":{"group":"gallery"}}}},"modules":{"core_filepicker":{"name":"core_filepicker","fullpath":"https:\/\/learn.nucamp.co\/lib\/javascript.php\/1687113448\/repository\/filepicker.js","requires":["base","node","node-event-simulate","json","async-queue","io-base","io-upload-iframe","io-form","yui2-treeview","panel","cookie","datatable","datatable-sort","resize-plugin","dd-plugin","escape","moodle-core_filepicker","moodle-core-notification-dialogue"]},"core_comment":{"name":"core_comment","fullpath":"https:\/\/learn.nucamp.co\/lib\/javascript.php\/1687113448\/comment\/comment.js","requires":["base","io-base","node","json","yui2-animation","overlay","escape"]},"mathjax":{"name":"mathjax","fullpath":"https:\/\/cdn.jsdelivr.net\/npm\/mathjax@2.7.9\/MathJax.js?delayStartupUntil=configured"}}};
+M.yui.loader = {modules: {}};
+
+//]]>
+</script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com/">
+<link href="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/css2" rel="stylesheet">
+<link rel="stylesheet" href="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/prism.css">
+<link rel="stylesheet" href="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/prism.css">
+<link rel="stylesheet" href="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/nucamp.css">
+<link rel="stylesheet" href="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/nucamp-marketing.css">
+<script type="text/javascript" src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/prism.js.download"></script>
+<meta name="robots" content="noindex"><meta name="robots" content="noindex"><meta name="robots" content="noindex">    <!-- CSS print media -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" value="summary">
+    <meta name="twitter:site" value="Nucamp">
+    <meta name="twitter:title" value="Team Development with Git: Exercise: Collaborating in Git &amp; GitHub - Part 1: Setup">
+
+    <!-- Open Graph data -->
+    <meta property="og:title" content="Team Development with Git: Exercise: Collaborating in Git &amp; GitHub - Part 1: Setup">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta name="og:site_name" value="Nucamp">
+
+    <!-- Chrome, Firefox OS and Opera on Android topbar color -->
+    <meta name="theme-color" content="#A83EA2">
+
+    <!-- Windows Phone topbar color -->
+    <meta name="msapplication-navbutton-color" content="#A83EA2">
+
+    <!-- iOS Safari topbar color -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#A83EA2">
+
+    <script src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/l.js.download" async=""></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="core/first" src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/requirejs.php"></script><link href="https://client.relay.crisp.chat/" rel="dns-prefetch" crossorigin=""><link href="https://client.crisp.chat/" rel="preconnect" crossorigin=""><script src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/client.js.download" type="text/javascript" async=""></script><link href="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/client_default.css" type="text/css" rel="stylesheet"><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="theme_boost/loader" src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/requirejs(1).php"></script><script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    config: ["Accessible.js", "Safe.js"],
+    errorSettings: { message: ["!"] },
+    skipStartupTypeset: true,
+    messageStyle: "none"
+});
+</script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="core_form/events" src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/requirejs(2).php"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery" src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/javascript.php"></script></head>
+<body id="page-mod-book-view" class="format-weeks limitedwidth path-mod path-mod-book chrome dir-ltr lang-en yui-skin-sam yui3-skin-sam learn-nucamp-co pagelayout-incourse course-31 context-88932 cmid-5104 cm-type-book category-3 theme_adaptable two-column nozoom header-style2 has-page-header nomobilenavigation  jsenabled page-header-margin drawer-ease   pace-done"><div class="pace  pace-inactive"><div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
+  <div class="pace-progress-inner"></div>
+</div>
+<div class="pace-activity"></div></div>
+
+<div>
+    <a class="sr-only sr-only-focusable" href="https://learn.nucamp.co/mod/book/view.php?id=5104&amp;chapterid=5235#maincontent">Skip to main content</a>
+</div><script src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/javascript(1).php"></script>
+<script src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/combo(4)"></script><div id="yui3-css-stamp" style="position: absolute !important; visibility: hidden !important" class=""></div><script src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/jquery-3.6.1.min.js.download"></script>
+<script src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/pace-min.js.download"></script>
+<script src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/jquery-flexslider-min.js.download"></script>
+<script src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/tickerme.js.download"></script>
+<script src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/jquery-easing-min.js.download"></script>
+<script src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/adaptable_v2_1_1_2.js.download"></script>
+<script src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/javascript(2).php"></script>
+<script>
+//<![CDATA[
+document.body.className += ' jsenabled';
+//]]>
+</script>
+
+
+<div id="page-wrapper">
+    <div id="page" class="fullin showblockicons standard">
+    <header id="adaptable-page-header-wrapper" class="stickything fixed-top">
+    <div id="header2" class="above-header container">
+        <div class="row ">
+            <div class="d-none d-lg-block col-lg-8">
+                <div class="d-flex justify-content-start align-items-center h-100 bd-highlight">
+                    <div class="pb-2 pr-3 pt-2 bd-highlight d-none d-lg-inline-block"><img src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/nucamp-logo-full-lockup-color-bitmapped-1000w.png" id="logo" alt="Logo"></div>
+                    <div id="sitetitle" class="bd-highlight pt-2 d-none d-md-inline-block"><h1 id="coursetitle">Modern Software Engineering with DevOps</h1></div>
+                    <div id="course-header">
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 p-0 my-auto">
+                <nav class="navbar navbar-expand btco-hover-menu">
+                    <div id="adaptable-page-header-nav-drawer" data-region="drawer-toggle" class="d-lg-none mr-3">
+                        <button id="drawer" aria-expanded="false" aria-controls="nav-drawer" type="button" class="nav-link float-sm-left mr-1" data-side="left">
+                            <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+                            <span class="sr-only">Side panel</span>
+                        </button>
+                    </div>
+
+                    <div class="collapse navbar-collapse">
+                        <ul class="navbar-nav ml-auto">
+
+                            <li class="nav-item navbarsearchsocial mx-md-1 my-auto">
+                                <div id="searchinput-navbar-64958896d04da64958896c41162" class="simplesearchform">
+    <div class="collapse" id="searchform-navbar">
+        <form autocomplete="off" action="https://learn.nucamp.co/course/search.php" method="get" accept-charset="utf-8" class="mform form-inline searchform-navbar">
+                <input type="hidden" name="context" value="88932">
+            <div class="input-group">
+                <label for="searchinput-64958896d04da64958896c41162">
+                    <span class="sr-only">Course search</span>
+                </label>
+                    <input type="text" id="searchinput-64958896d04da64958896c41162" class="form-control withclear" placeholder="Course search" aria-label="Course search" name="q" data-region="input" autocomplete="off">
+                    <a class="btn btn-close" data-action="closesearch" data-toggle="collapse" href="https://learn.nucamp.co/mod/book/view.php?id=5104&amp;chapterid=5235#searchform-navbar" role="button">
+                        <i class="icon fa fa-times fa-fw " aria-hidden="true"></i>
+                        <span class="sr-only">Close</span>
+                    </a>
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-submit" data-action="submit">
+                        <i class="icon fa fa-search fa-fw " aria-hidden="true"></i>
+                        <span class="sr-only">Course search</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <a class="btn btn-open rounded-0 nav-link" data-toggle="collapse" data-action="opensearch" href="https://learn.nucamp.co/mod/book/view.php?id=5104&amp;chapterid=5235#searchform-navbar" role="button" aria-expanded="false" aria-controls="searchform-navbar" title="Toggle search input">
+        <i class="icon fa fa-search fa-fw " aria-hidden="true"></i>
+        <span class="sr-only">Toggle search input</span>
+    </a>
+</div>
+                            </li>
+
+
+                            <li id="nav-popover-container" class="my-auto mx-1 d-flex">
+                                <div class="popover-region collapsed popover-region-notifications" id="nav-notification-popover-container" data-userid="30703" data-region="popover-region">
+    <div class="popover-region-toggle nav-link icon-no-margin" data-region="popover-region-toggle" role="button" aria-controls="popover-region-container-64958896d1e3c64958896c41163" aria-haspopup="true" aria-label="  Show notification window with 8 new notifications  " tabindex="0">
+                <i class="icon fa fa-bell-o fa-fw " title="Toggle notifications menu" role="img" aria-label="Toggle notifications menu"></i>
+        <div class="count-container " data-region="count-container" aria-hidden="true">
+            8
+        </div>
+
+    </div>
+    <div id="popover-region-container-64958896d1e3c64958896c41163" class="popover-region-container" data-region="popover-region-container" aria-expanded="false" aria-hidden="true" aria-label="Notification window" role="region">
+        <div class="popover-region-header-container">
+            <h3 class="popover-region-header-text" data-region="popover-region-header-text">Notifications</h3>
+            <div class="popover-region-header-actions" data-region="popover-region-header-actions">        <a class="mark-all-read-button" href="https://learn.nucamp.co/mod/book/view.php?id=5104&amp;chapterid=5235#" title="Mark all as read" data-action="mark-all-read" role="button" aria-label="Mark all as read">
+            <span class="normal-icon"><i class="icon fa fa-check fa-fw " aria-hidden="true"></i></span>
+            <span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw " title="Loading" role="img" aria-label="Loading"></i></span>
+        </a>
+            <a href="https://learn.nucamp.co/message/notificationpreferences.php" title="Notification preferences" aria-label="Notification preferences">
+                <i class="icon fa fa-cog fa-fw " aria-hidden="true"></i></a>
+</div>
+        </div>
+        <div class="popover-region-content-container" data-region="popover-region-content-container">
+            <div class="popover-region-content" data-region="popover-region-content">
+                        <div class="all-notifications" data-region="all-notifications" role="log" aria-busy="false" aria-atomic="false" aria-relevant="additions"></div>
+        <div class="empty-message" tabindex="0" data-region="empty-message">You have no notifications</div>
+
+            </div>
+            <span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw " title="Loading" role="img" aria-label="Loading"></i></span>
+        </div>
+                <a class="see-all-link" href="https://learn.nucamp.co/message/output/popup/notifications.php">
+                    <div class="popover-region-footer-container">
+                        <div class="popover-region-seeall-text">See all</div>
+                    </div>
+                </a>
+    </div>
+</div><div class="pull-right popover-region popover-region-messages collapsed">
+    <a id="message-drawer-toggle-64958896d468664958896c41164" class="nav-link d-inline-block popover-region-toggle position-relative" href="https://learn.nucamp.co/mod/book/view.php?id=5104&amp;chapterid=5235#" role="button">
+        <i class="icon fa fa-comment-o fa-fw " title="Toggle messaging drawer" role="img" aria-label="Toggle messaging drawer"></i>
+        <div class="count-container hidden" data-region="count-container" aria-label="There are 0 unread conversations">0</div>
+    </a>
+</div>
+                            </li>
+
+
+                            
+
+                            <li class="nav-item dropdown ml-3 ml-md-2 mr-2 mr-md-0"><a class="nav-link dropdown-toggle my-auto" role="button" href="https://learn.nucamp.co/mod/book/view.php?id=5104&amp;chapterid=5235#" id="usermenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-controls="usermenu-dropdown" aria-label="User menu" title="Cheston Hadley">
+        <span class="d-none d-md-inline-block mx-1">Cheston Hadley</span>
+    <img src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/6fea48ffab10c90bda9fc2ef2762b967.png" class="userpicture defaultuserpic" width="35" height="35" alt="">
+</a>
+
+<div class="dropdown-menu dropdown-menu-right" role="menu" id="usermenu-dropdown" aria-labelledby="usermenu">
+    <a class="dropdown-item" href="https://learn.nucamp.co/my" title="Dashboard"><i aria-hidden="true" class="fa fa-dashboard"></i>Dashboard</a><a class="dropdown-item" href="https://learn.nucamp.co/user/profile.php" title="View profile"><i aria-hidden="true" class="fa fa-user"></i>View profile</a><a class="dropdown-item" href="https://learn.nucamp.co/user/edit.php" title="Edit profile"><i aria-hidden="true" class="fa fa-cog"></i>Edit profile</a><a class="dropdown-item" href="https://learn.nucamp.co/grade/report/overview/index.php" title="Grades"><i aria-hidden="true" class="fa fa-list-alt"></i>Grades</a><a class="dropdown-item" href="https://learn.nucamp.co/badges/mybadges.php" title="Badges"><i aria-hidden="true" class="fa fa-certificate"></i>Badges</a><a class="dropdown-item" href="https://learn.nucamp.co/user/preferences.php" title="Preferences"><i aria-hidden="true" class="fa fa-cog"></i>Preferences</a><a class="dropdown-item" href="https://learn.nucamp.co/message/edit.php" title="Notifications"><i aria-hidden="true" class="fa fa-paper-plane"></i>Notifications</a><a class="dropdown-item" href="https://learn.nucamp.co/calendar/view.php" title="Calendar"><i aria-hidden="true" class="fa fa-calendar"></i>Calendar</a><a class="dropdown-item" href="https://learn.nucamp.co/login/logout.php?sesskey=hshYs68HXk" title="Log out"><i aria-hidden="true" class="fa fa-sign-out"></i>Log out</a>
+</div></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+        <div id="nav-drawer" data-region="drawer" class="d-print-none moodle-has-zindex closed" aria-hidden="true" tabindex="-1">
+            <div id="nav-drawer-inner">
+                <nav class="list-group">
+                    <ul class="list-unstyled components">
+                        <li class="m-l-0"><a class="list-group-item list-group-item-action" href="https://learn.nucamp.co/?redirect=0" data-key="" data-isexpandable="0" data-indent="0" data-showdivider="0" data-type="1" data-nodetype="1" data-collapse="0" data-forceopen="1" data-isactive="1" data-hidden="0" data-preceedwithhr="0" data-parent-key="main-navigation-drawer"><div class="m-l-0"><i class="fa fa-home fa-lg"></i>Home</div></a></li><li class="m-l-0"><a class="list-group-item list-group-item-action" href="https://learn.nucamp.co/my/index.php" data-key="" data-isexpandable="0" data-indent="0" data-showdivider="0" data-type="1" data-nodetype="1" data-collapse="0" data-forceopen="1" data-isactive="1" data-hidden="0" data-preceedwithhr="0" data-parent-key="main-navigation-drawer"><div class="m-l-0"><i class="fa fa-dashboard fa-lg"></i>Dashboard</div></a></li><li class="m-l-0"><a class="list-group-item list-group-item-action" href="https://learn.nucamp.co/calendar/view.php" data-key="" data-isexpandable="0" data-indent="0" data-showdivider="0" data-type="1" data-nodetype="1" data-collapse="0" data-forceopen="1" data-isactive="1" data-hidden="0" data-preceedwithhr="0" data-parent-key="main-navigation-drawer"><div class="m-l-0"><i class="fa fa-calendar fa-lg"></i>Events</div></a></li><li class="m-l-0"><a href="https://learn.nucamp.co/mod/book/view.php?id=5104&amp;chapterid=5235#main-navigation-drawer1" class="list-group-item dropdown-toggle" aria-haspopup="true" data-target="#" data-toggle="collapse" title="My courses"><i class="fa fa-briefcase fa-lg"></i>My courses</a><ul class="collapse" id="main-navigation-drawer1"><li class="m-l-0"><a href="https://learn.nucamp.co/mod/book/view.php?id=5104&amp;chapterid=5235#main-navigation-drawer12" class="list-group-item dropdown-toggle" aria-haspopup="true" data-target="#" data-toggle="collapse" title=""><i aria-hidden="true" class="fa fa-tasks"></i>In progress...</a><ul class="collapse" id="main-navigation-drawer12"><li class="m-l-1"><a class="list-group-item list-group-item-action" href="https://learn.nucamp.co/course/view.php?id=31" data-key="" data-isexpandable="0" data-indent="1" data-showdivider="0" data-type="1" data-nodetype="1" data-collapse="0" data-forceopen="1" data-isactive="1" data-hidden="0" data-preceedwithhr="0" data-parent-key="main-navigation-drawer12"><div class="m-l-1"><i aria-hidden="true" class="fa fa-graduation-cap"></i>Modern Software Engineering with DevOps</div></a></li><li class="m-l-1"><a class="list-group-item list-group-item-action" href="https://learn.nucamp.co/course/view.php?id=30" data-key="" data-isexpandable="0" data-indent="1" data-showdivider="0" data-type="1" data-nodetype="1" data-collapse="0" data-forceopen="1" data-isactive="1" data-hidden="0" data-preceedwithhr="0" data-parent-key="main-navigation-drawer12"><div class="m-l-1"><i aria-hidden="true" class="fa fa-graduation-cap"></i>SQL with Python</div></a></li><li class="m-l-1"><a class="list-group-item list-group-item-action" href="https://learn.nucamp.co/course/view.php?id=29" data-key="" data-isexpandable="0" data-indent="1" data-showdivider="0" data-type="1" data-nodetype="1" data-collapse="0" data-forceopen="1" data-isactive="1" data-hidden="0" data-preceedwithhr="0" data-parent-key="main-navigation-drawer12"><div class="m-l-1"><i aria-hidden="true" class="fa fa-graduation-cap"></i>Python Fundamentals</div></a></li></ul></li></ul></li><li class="m-l-0"><a href="https://learn.nucamp.co/mod/book/view.php?id=5104&amp;chapterid=5235#main-navigation-drawer3" class="list-group-item dropdown-toggle" aria-haspopup="true" data-target="#" data-toggle="collapse" title="This course"><i class="fa fa-sitemap fa-lg"></i><span class="menutitle">This course</span></a><ul class="collapse" id="main-navigation-drawer3"><li class="m-l-0"><a href="https://learn.nucamp.co/mod/book/view.php?id=5104&amp;chapterid=5235#main-navigation-drawer34" class="list-group-item dropdown-toggle" aria-haspopup="true" data-target="#" data-toggle="collapse" title="Sections"><i class="icon sections-menu fa fa-list-ol fa-lg"></i>Sections</a><ul class="collapse" id="main-navigation-drawer34"><li class="m-l-1"><a class="list-group-item list-group-item-action" href="https://learn.nucamp.co/course/view.php?id=31#section-0" data-key="" data-isexpandable="0" data-indent="1" data-showdivider="0" data-type="1" data-nodetype="1" data-collapse="0" data-forceopen="1" data-isactive="1" data-hidden="0" data-preceedwithhr="0" data-parent-key="main-navigation-drawer34"><div class="m-l-1">General</div></a></li><li class="m-l-1"><a class="list-group-item list-group-item-action" href="https://learn.nucamp.co/course/view.php?id=31&amp;section=1" data-key="" data-isexpandable="0" data-indent="1" data-showdivider="0" data-type="1" data-nodetype="1" data-collapse="0" data-forceopen="1" data-isactive="1" data-hidden="0" data-preceedwithhr="0" data-parent-key="main-navigation-drawer34"><div class="m-l-1">Week 1: Introduction to Software Development</div></a></li><li class="m-l-1"><a class="list-group-item list-group-item-action" href="https://learn.nucamp.co/course/view.php?id=31&amp;section=2" data-key="" data-isexpandable="0" data-indent="1" data-showdivider="0" data-type="1" data-nodetype="1" data-collapse="0" data-forceopen="1" data-isactive="1" data-hidden="0" data-preceedwithhr="0" data-parent-key="main-navigation-drawer34"><div class="m-l-1">Week 2: More Docker, Cloud Computing, and AWS</div></a></li><li class="m-l-1"><a class="list-group-item list-group-item-action" href="https://learn.nucamp.co/course/view.php?id=31&amp;section=3" data-key="" data-isexpandable="0" data-indent="1" data-showdivider="0" data-type="1" data-nodetype="1" data-collapse="0" data-forceopen="1" data-isactive="1" data-hidden="0" data-preceedwithhr="0" data-parent-key="main-navigation-drawer34"><div class="m-l-1">Week 3: CI/CD, Testing, and Google Cloud</div></a></li><li class="m-l-1"><a class="list-group-item list-group-item-action" href="https://learn.nucamp.co/course/view.php?id=31&amp;section=4" data-key="" data-isexpandable="0" data-indent="1" data-showdivider="0" data-type="1" data-nodetype="1" data-collapse="0" data-forceopen="1" data-isactive="1" data-hidden="0" data-preceedwithhr="0" data-parent-key="main-navigation-drawer34"><div class="m-l-1">Week 4: Advanced DevOps, Kubernetes, and Azure</div></a></li><li class="m-l-1"><a class="list-group-item list-group-item-action" href="https://learn.nucamp.co/course/view.php?id=31&amp;section=5" data-key="" data-isexpandable="0" data-indent="1" data-showdivider="0" data-type="1" data-nodetype="1" data-collapse="0" data-forceopen="1" data-isactive="1" data-hidden="0" data-preceedwithhr="0" data-parent-key="main-navigation-drawer34"><div class="m-l-1">Backend, SQL, and DevOps with Python Bootcamp Graduation Preparation</div></a></li></ul></li><li class="m-l-1"><a class="list-group-item list-group-item-action" href="https://learn.nucamp.co/user/index.php?id=31" data-key="" data-isexpandable="0" data-indent="1" data-showdivider="0" data-type="1" data-nodetype="1" data-collapse="0" data-forceopen="1" data-isactive="1" data-hidden="0" data-preceedwithhr="0" data-parent-key="main-navigation-drawer4"><div class="m-l-1"><i class="icon fa fa-users fa-lg"></i>Participants</div></a></li><li class="m-l-1"><a class="list-group-item list-group-item-action" href="https://learn.nucamp.co/grade/report/index.php?id=31" data-key="" data-isexpandable="0" data-indent="1" data-showdivider="0" data-type="1" data-nodetype="1" data-collapse="0" data-forceopen="1" data-isactive="1" data-hidden="0" data-preceedwithhr="0" data-parent-key="main-navigation-drawer4"><div class="m-l-1"><i class="icon fa fa-table fa-fw " aria-hidden="true"></i>Grades</div></a></li><li class="m-l-1"><a class="list-group-item list-group-item-action" href="https://learn.nucamp.co/mod/assign/index.php?id=31" data-key="" data-isexpandable="0" data-indent="1" data-showdivider="0" data-type="1" data-nodetype="1" data-collapse="0" data-forceopen="1" data-isactive="1" data-hidden="0" data-preceedwithhr="0" data-parent-key="main-navigation-drawer4"><div class="m-l-1"><img class="icon " alt="" aria-hidden="true" src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/monologo.svg">Assignments</div></a></li><li class="m-l-1"><a class="list-group-item list-group-item-action" href="https://learn.nucamp.co/mod/choice/index.php?id=31" data-key="" data-isexpandable="0" data-indent="1" data-showdivider="0" data-type="1" data-nodetype="1" data-collapse="0" data-forceopen="1" data-isactive="1" data-hidden="0" data-preceedwithhr="0" data-parent-key="main-navigation-drawer4"><div class="m-l-1"><img class="icon " alt="" aria-hidden="true" src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/monologo(1).svg">Choices</div></a></li><li class="m-l-1"><a class="list-group-item list-group-item-action" href="https://learn.nucamp.co/mod/feedback/index.php?id=31" data-key="" data-isexpandable="0" data-indent="1" data-showdivider="0" data-type="1" data-nodetype="1" data-collapse="0" data-forceopen="1" data-isactive="1" data-hidden="0" data-preceedwithhr="0" data-parent-key="main-navigation-drawer4"><div class="m-l-1"><img class="icon " alt="" aria-hidden="true" src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/monologo(2).svg">Feedback</div></a></li><li class="m-l-1"><a class="list-group-item list-group-item-action" href="https://learn.nucamp.co/mod/forum/index.php?id=31" data-key="" data-isexpandable="0" data-indent="1" data-showdivider="0" data-type="1" data-nodetype="1" data-collapse="0" data-forceopen="1" data-isactive="1" data-hidden="0" data-preceedwithhr="0" data-parent-key="main-navigation-drawer4"><div class="m-l-1"><img class="icon " alt="" aria-hidden="true" src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/monologo(3).svg">Forums</div></a></li><li class="m-l-1"><a class="list-group-item list-group-item-action" href="https://learn.nucamp.co/mod/quiz/index.php?id=31" data-key="" data-isexpandable="0" data-indent="1" data-showdivider="0" data-type="1" data-nodetype="1" data-collapse="0" data-forceopen="1" data-isactive="1" data-hidden="0" data-preceedwithhr="0" data-parent-key="main-navigation-drawer4"><div class="m-l-1"><img class="icon " alt="" aria-hidden="true" src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/monologo(4).svg">Quizzes</div></a></li><li class="m-l-1"><a class="list-group-item list-group-item-action" href="https://learn.nucamp.co/course/resources.php?id=31" data-key="" data-isexpandable="0" data-indent="1" data-showdivider="0" data-type="1" data-nodetype="1" data-collapse="0" data-forceopen="1" data-isactive="1" data-hidden="0" data-preceedwithhr="0" data-parent-key="main-navigation-drawer4"><div class="m-l-1"><img class="icon " alt="" aria-hidden="true" src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/monologo(5).svg">Resources</div></a></li><li class="m-l-1"><a class="list-group-item list-group-item-action" href="https://learn.nucamp.co/mod/wiki/index.php?id=31" data-key="" data-isexpandable="0" data-indent="1" data-showdivider="0" data-type="1" data-nodetype="1" data-collapse="0" data-forceopen="1" data-isactive="1" data-hidden="0" data-preceedwithhr="0" data-parent-key="main-navigation-drawer4"><div class="m-l-1"><img class="icon " alt="" aria-hidden="true" src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/monologo(6).svg">Wikis</div></a></li></ul></li><li class="m-l-0"><a class="list-group-item list-group-item-action" href="https://www.nucamp.co/profile" data-key="" data-isexpandable="0" data-indent="0" data-showdivider="0" data-type="1" data-nodetype="1" data-collapse="0" data-forceopen="1" data-isactive="1" data-hidden="0" data-preceedwithhr="0" data-parent-key="main-navigation-drawer"><i class="fa fa-life-ring"></i> Billing</a></li><li class="m-l-0"><a class="list-group-item list-group-item-action" href="https://url.nucamp.co/swag" data-key="" data-isexpandable="0" data-indent="0" data-showdivider="0" data-type="1" data-nodetype="1" data-collapse="0" data-forceopen="1" data-isactive="1" data-hidden="0" data-preceedwithhr="0" data-parent-key="main-navigation-drawer"><i class="fa fa-shopping-cart"></i> Swag Shop</a></li>
+                        <li>
+                            
+                        </li>
+                    </ul>
+                </nav>
+        
+                <nav class="list-group m-t-1">
+                    
+                </nav>
+            </div>
+        </div>
+        
+        <div id="main-navbar" class="d-none d-lg-block">
+            <div class="container">
+                <div class="navbar navbar-expand btco-hover-menu">
+                    <nav aria-label="Site links">
+                        <ul class="navbar-nav">
+                            <li class="nav-item"><a title="Home" class="nav-link" href="https://learn.nucamp.co/?redirect=0"><i class="fa fa-home fa-lg"></i>Home</a></li><li class="nav-item"><a title="Dashboard" class="nav-link" href="https://learn.nucamp.co/my/index.php"><i class="fa fa-dashboard fa-lg"></i>Dashboard</a></li><li class="nav-item"><a title="Events" class="nav-link" href="https://learn.nucamp.co/calendar/view.php"><i class="fa fa-calendar fa-lg"></i>Events</a></li><li class="nav-item dropdown my-auto"><a href="https://learn.nucamp.co/mod/book/view.php?id=5104&amp;chapterid=5235#" class="nav-link dropdown-toggle my-auto" role="button" id="main-navigation0" aria-haspopup="true" aria-expanded="false" aria-controls="dropdownmain-navigation0" data-target="#" data-toggle="dropdown" title="My courses"><i class="fa fa-briefcase fa-lg"></i>My courses</a><ul role="menu" class="dropdown-menu" id="dropdownmain-navigation0" aria-labelledby="main-navigation0"><li class="nav-item dropdown my-auto"><a href="https://learn.nucamp.co/mod/book/view.php?id=5104&amp;chapterid=5235" class="nav-link dropdown-toggle my-auto" role="button" id="main-navigation00" aria-haspopup="true" aria-expanded="false" aria-controls="dropdownmain-navigation00" data-target="https://learn.nucamp.co/mod/book/view.php?id=5104&amp;chapterid=5235" data-toggle="dropdown" title=""><i aria-hidden="true" class="fa fa-tasks"></i>In progress...</a><ul role="menu" class="dropdown-menu" id="dropdownmain-navigation00" aria-labelledby="main-navigation00"><li><a title="Modern Software Engineering with DevOps" class="dropdown-item" href="https://learn.nucamp.co/course/view.php?id=31"><i aria-hidden="true" class="fa fa-graduation-cap"></i>Modern Software Engineering with DevOps</a></li><li><a title="SQL with Python" class="dropdown-item" href="https://learn.nucamp.co/course/view.php?id=30"><i aria-hidden="true" class="fa fa-graduation-cap"></i>SQL with Python</a></li><li><a title="Python Fundamentals, Data Structures, and Algorithms" class="dropdown-item" href="https://learn.nucamp.co/course/view.php?id=29"><i aria-hidden="true" class="fa fa-graduation-cap"></i>Python Fundamentals</a></li></ul></li></ul></li><li class="nav-item dropdown my-auto"><a href="https://learn.nucamp.co/mod/book/view.php?id=5104&amp;chapterid=5235" class="nav-link dropdown-toggle my-auto" role="button" id="main-navigation0" aria-haspopup="true" aria-expanded="false" aria-controls="dropdownmain-navigation0" data-target="https://learn.nucamp.co/mod/book/view.php?id=5104&amp;chapterid=5235" data-toggle="dropdown" title="This course"><i class="fa fa-sitemap fa-lg"></i><span class="menutitle">This course</span></a><ul role="menu" class="dropdown-menu" id="dropdownmain-navigation0" aria-labelledby="main-navigation0"><li class="nav-item dropdown my-auto"><a href="https://learn.nucamp.co/mod/book/view.php?id=5104&amp;chapterid=5235#" class="nav-link dropdown-toggle my-auto" role="button" id="main-navigation00" aria-haspopup="true" aria-expanded="false" aria-controls="dropdownmain-navigation00" data-target="#" data-toggle="dropdown" title="Sections"><i class="icon sections-menu fa fa-list-ol fa-lg"></i>Sections</a><ul role="menu" class="dropdown-menu" id="dropdownmain-navigation00" aria-labelledby="main-navigation00"><li><a title="General" class="dropdown-item" href="https://learn.nucamp.co/course/view.php?id=31#section-0">General</a></li><li><a title="Week 1: Introduction to Software Development" class="dropdown-item" href="https://learn.nucamp.co/course/view.php?id=31&amp;section=1">Week 1: Introduction to Software Development</a></li><li><a title="Week 2: More Docker, Cloud Computing, and AWS" class="dropdown-item" href="https://learn.nucamp.co/course/view.php?id=31&amp;section=2">Week 2: More Docker, Cloud Computing, and AWS</a></li><li><a title="Week 3: CI/CD, Testing, and Google Cloud" class="dropdown-item" href="https://learn.nucamp.co/course/view.php?id=31&amp;section=3">Week 3: CI/CD, Testing, and Google Cloud</a></li><li><a title="Week 4: Advanced DevOps, Kubernetes, and Azure" class="dropdown-item" href="https://learn.nucamp.co/course/view.php?id=31&amp;section=4">Week 4: Advanced DevOps, Kubernetes, and Azure</a></li><li><a title="Backend, SQL, and DevOps with Python Bootcamp Graduation Preparation" class="dropdown-item" href="https://learn.nucamp.co/course/view.php?id=31&amp;section=5">Backend, SQL, and DevOps with Python Bootcamp Graduation Preparation</a></li></ul></li><li><a title="Participants" class="dropdown-item" href="https://learn.nucamp.co/user/index.php?id=31"><i class="icon fa fa-users fa-lg"></i>Participants</a></li><li><a title="Grades" class="dropdown-item" href="https://learn.nucamp.co/grade/report/index.php?id=31"><i class="icon fa fa-table fa-fw " aria-hidden="true"></i>Grades</a></li><li><a title="Assignments" class="dropdown-item" href="https://learn.nucamp.co/mod/assign/index.php?id=31"><img class="icon " alt="" aria-hidden="true" src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/monologo.svg">Assignments</a></li><li><a title="Choices" class="dropdown-item" href="https://learn.nucamp.co/mod/choice/index.php?id=31"><img class="icon " alt="" aria-hidden="true" src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/monologo(1).svg">Choices</a></li><li><a title="Feedback" class="dropdown-item" href="https://learn.nucamp.co/mod/feedback/index.php?id=31"><img class="icon " alt="" aria-hidden="true" src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/monologo(2).svg">Feedback</a></li><li><a title="Forums" class="dropdown-item" href="https://learn.nucamp.co/mod/forum/index.php?id=31"><img class="icon " alt="" aria-hidden="true" src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/monologo(3).svg">Forums</a></li><li><a title="Quizzes" class="dropdown-item" href="https://learn.nucamp.co/mod/quiz/index.php?id=31"><img class="icon " alt="" aria-hidden="true" src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/monologo(4).svg">Quizzes</a></li><li><a title="Resources" class="dropdown-item" href="https://learn.nucamp.co/course/resources.php?id=31"><img class="icon " alt="" aria-hidden="true" src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/monologo(5).svg">Resources</a></li><li><a title="Wikis" class="dropdown-item" href="https://learn.nucamp.co/mod/wiki/index.php?id=31"><img class="icon " alt="" aria-hidden="true" src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/monologo(6).svg">Wikis</a></li></ul></li><li class="nav-item"><a title=" Billing" target="_blank" class="nav-link" href="https://www.nucamp.co/profile"><i class="fa fa-life-ring"></i> Billing</a></li><li class="nav-item"><a title=" Swag Shop" target="_blank" class="nav-link" href="https://url.nucamp.co/swag"><i class="fa fa-shopping-cart"></i> Swag Shop</a></li>
+                                
+                        </ul>
+                    </nav>
+        
+                    <ul class="navbar-nav ml-auto d-flex flex-wrap">
+        
+        
+        
+                        <li class="nav-item mr-1">
+                            <div id="zoominicon" class="right nav-link" title="Hide blocks" data-hidetitle="Hide blocks" data-showtitle="Show blocks">
+                                <i class="fa fa-lg fa-indent" aria-hidden="true"></i>
+                            </div>
+                        </li>
+        
+                        <li class="nav-item mx-0 hbll">
+                            <a class="nav-link moodlewidth" href="javascript:void(0);" title="Full screen">
+                                <i class="fa fa-expand fa-lg" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item mx-0 sbll">
+                            <a class="nav-link moodlewidth" href="javascript:void(0);" title="Standard view">
+                                <i class="fa fa-compress fa-lg" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+</header>
+<div class="container outercont" id="yui_3_17_2_1_1687521431813_55">
+    <div class="row"><div id="page-second-header" class="col-12 pt-3 pb-3 d-none d-md-flex">
+    <div class="d-flex flex-fill flex-wrap align-items-center">
+        <div id="page-navbar" class="mr-auto">
+            <nav role="navigation" aria-label="Breadcrumb">
+            <ol class="breadcrumb d-none d-md-flex"><i title="Home" class="fa fa-folder-open fa-lg"></i><span class="separator"><i class="fa-angle-right fa"></i></span><li><span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a itemprop="url" href="https://learn.nucamp.co/my/courses.php"><span itemprop="title">My courses</span></a></span></li><span class="separator"><i class="fa-angle-right fa"></i></span><li><span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a itemprop="url" title="Modern Software Engineering with DevOps" href="https://learn.nucamp.co/course/view.php?id=31"><span itemprop="title">Modern Software Engineering with DevOps</span></a></span></li><span class="separator"><i class="fa-angle-right fa"></i></span><li><span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a itemprop="url" href="https://learn.nucamp.co/course/view.php?id=31&amp;section=1"><span itemprop="title">Week 1: Introduction to Software Development</span></a></span></li><span class="separator"><i class="fa-angle-right fa"></i></span><li class="lastli"><span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a itemprop="url" title="Book" aria-current="page" href="https://learn.nucamp.co/mod/book/view.php?id=5104"><span itemprop="title">Team Development with Git</span></a></span></li></ol>
+        </nav>
+        </div>
+    </div>
+</div></div>    <div id="page-content" class="row flex-row">
+        <div id="region-main-box" class="col-9">
+            <section id="region-main">
+                <span class="notifications" id="user-notifications"></span><span id="maincontent"></span>
+    <h2>Team Development with Git</h2>
+<div class="activity-header" data-for="page-activity-header">
+        <span class="sr-only">Completion requirements</span>
+        <div data-region="activity-information" data-activityname="Team Development with Git" class="activity-information">
+
+            <div class="completion-info" data-region="completion-info">
+                    <div class="automatic-completion-conditions" data-region="completionrequirements" role="list" aria-label="Completion requirements for Team Development with Git">
+                                <span class="badge badge-pill badge-light" role="listitem">
+                                    <strong>To do:</strong> <span class="font-weight-normal">View</span>
+                                </span>
+                    </div>
+            </div>
+
+</div>
+</div><div role="main" id="yui_3_17_2_1_1687521431813_54"><div class="container-fluid tertiary-navigation">
+    <div class="row">
+            <div class="navitem">
+                <a class="btn btn-secondary" href="https://learn.nucamp.co/mod/book/view.php?id=5104&amp;chapterid=5234">Previous</a>
+            </div>
+            <div class="navitem ml-auto">
+                <a class="btn btn-secondary" href="https://learn.nucamp.co/mod/book/view.php?id=5104&amp;chapterid=5286">Next</a>
+            </div>
+    </div>
+</div><div class="box generalbox book_content" id="yui_3_17_2_1_1687521431813_53"><h3>4. Exercise: Collaborating in Git &amp; GitHub - Part 1: Setup</h3><div class="no-overflow" id="yui_3_17_2_1_1687521431813_52"><p style="text-align: center;"><span style="color: rgb(168, 62, 162); font-size: 1.64062rem;">What You'll Do</span><br></p>
+<p></p>
+<ul>
+    <li><span>In this exercise, you will set up a GitHub repository to use in practicing commands and concepts for team collaboration.</span></li>
+</ul>
+<p><br></p>
+<h3 style="text-align: center; ">Instructions</h3>
+<p></p>
+<div>
+    <h4 style="background:lavender">Create remote repository on GitHub</h4>
+    <ul>
+        <li><span data-contrast="auto" xml:lang="EN-US" lang="EN-US" style="font-size: 0.9375rem;">We will once again create a remote repository on GitHub, and link it to a local repository on your computer.</span></li>
+        <li><span data-contrast="auto" xml:lang="EN-US" lang="EN-US" style="font-size: 0.9375rem;">Log in to your GitHub account at&nbsp;</span><a href="https://github.com/" target="_blank" rel="noreferrer noopener" style="background-color: rgb(255, 255, 255); font-size: 0.9375rem;"><span data-contrast="auto" xml:lang="EN-US" lang="EN-US">https://github.com/</span></a>
+            <span data-contrast="auto" xml:lang="EN-US" lang="EN-US" style="font-size: 0.9375rem;">&nbsp;</span></li>
+        <li>Once you are logged in, you should see a green <strong style="font-size: 0.9375rem;">New</strong><span style="font-size: 0.9375rem;">&nbsp;button at the upper left of your screen, to the right of the word </span><strong style="font-size: 0.9375rem;">Repositories</strong><span style="font-size: 0.9375rem;">.&nbsp;</span><span style="font-size: 0.9375rem;"></span></li>
+        <li><span style="font-size: 0.9375rem;">Click this button and you will be taken to a form to create a new repository.</span><br></li>
+        <li><span style="font-size: 0.9375rem;">For the <strong>Repository name</strong>&nbsp;field, enter <strong>GH_collab:</strong></span><br></li></ul></div><div class="editor-indent" style="margin-left: 30px;" id="yui_3_17_2_1_1687521431813_69"><div id="yui_3_17_2_1_1687521431813_68"><p id="yui_3_17_2_1_1687521431813_67"><strong id="yui_3_17_2_1_1687521431813_66"><img src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/image (13).png" alt="" role="presentation" class="img-fluid" id="yui_3_17_2_1_1687521431813_65"></strong></p></div></div><div id="yui_3_17_2_1_1687521431813_51"><ul>
+        <li><span style="font-size: 0.9375rem;">Leave the other fields as-is, and click the <strong>Create repository</strong>&nbsp;button at the bottom of the page.</span><br></li>
+        <li><span style="font-size: 0.9375rem;">This will create a remote repository hosted by GitHub, and take you to a new page with a few options for what to do next.&nbsp;</span></li>
+        <li><span style="font-size: 0.9375rem;">Keep this page open. We will return to it in a moment.&nbsp;</span></li>
+    </ul><br>
+    <h4 style="background:lavender">Create local repository on your computer</h4>
+    <ul id="yui_3_17_2_1_1687521431813_50">
+        <li id="yui_3_17_2_1_1687521431813_64"><span style="font-size: 0.9375rem;" id="yui_3_17_2_1_1687521431813_63">Open a bash terminal, and enter this command to </span><strong style="font-size: 0.9375rem;">cd</strong><span style="font-size: 0.9375rem;">&nbsp;into the </span><strong style="font-size: 0.9375rem;">week1</strong><span style="font-size: 0.9375rem;">/</span><strong style="font-size: 0.9375rem;">&nbsp;</strong>
+            <span style="font-size: 0.9375rem;">folder for this course:</span><br></li>
+        <p></p>
+        <p></p>
+        <p></p>
+        <div id="yui_3_17_2_1_1687521431813_49">
+            <p></p>
+            <p></p>
+            <pre class=" language-en" id="yui_3_17_2_1_1687521431813_48"><code class=" language-en">cd ~/Desktop/NucampFolder/Python/3-DevOps/week1</code></pre>
+        </div>
+        <li>Next, create a folder with the name&nbsp;<strong style="font-size: 0.9375rem;">github_collab</strong><span style="font-size: 0.9375rem;">, and&nbsp;</span><strong style="font-size: 0.9375rem;">cd</strong><span style="font-size: 0.9375rem;">&nbsp;into it as well:</span>
+            <span data-contrast="auto" xml:lang="EN-US" lang="EN-US" style="font-size: 0.9375rem;"></span>
+        </li>
+        <p></p>
+        <p></p>
+        <p></p>
+        <div id="yui_3_17_2_1_1687521431813_57">
+            <p></p>
+            <p></p>
+            <p></p>
+            <pre class=" language-en" id="yui_3_17_2_1_1687521431813_56"><code class=" language-en">mkdir github_collab</code></pre>
+            <pre class=" language-en" id="yui_3_17_2_1_1687521431813_58"><code class=" language-en">cd github_collab
+</code></pre>
+            <p><img src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/image (1).png" alt="" role="presentation" class="img-fluid"></p>
+        </div>
+        <li><span data-contrast="auto" xml:lang="EN-US" lang="EN-US" style="font-size: 0.9375rem;">Then return to the GitHub page that was shown after you created your remote repository there, and copy the first set of commands.&nbsp;</span></li>
+        <li><span data-contrast="auto" xml:lang="EN-US" lang="EN-US" style="font-size: 0.9375rem;">They should look similar to the below screenshot -- the only difference should be that the URL to the remote repository should point to the one you made:</span><br></li>
+    </ul>
+</div>
+<p></p>
+<div class="editor-indent" style="margin-left: 30px;" id="yui_3_17_2_1_1687521431813_62">
+    <p></p>
+    <div id="yui_3_17_2_1_1687521431813_61">
+        <p id="yui_3_17_2_1_1687521431813_60"><img src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/image.png" alt="" role="presentation" class="img-fluid" id="yui_3_17_2_1_1687521431813_59"></p>
+    </div>
+    <p></p>
+</div>
+<p></p>
+<div>
+    <p xml:lang="EN-US" lang="EN-US"></p>
+    <ul>
+        <li><span style="font-size: 0.9375rem;">Copy that set of instructions, and paste them into your bash terminal. Be sure to press enter at the last line, which should look like this:</span></li>
+    </ul>
+    <p></p>
+</div>
+<div class="editor-indent" style="margin-left: 30px;">
+    <div>
+        <p xml:lang="EN-US" lang="EN-US"></p>
+        <p><img src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/image (2).png" alt="" role="presentation" class="img-fluid"></p>
+        <p><br></p>
+        <p></p>
+    </div>
+</div>
+<h4 style="background:lavender">Django app files</h4>
+<div>
+    <p xml:lang="EN-US" lang="EN-US"></p>
+    <p></p>
+    <ul>
+        <li><span style="font-size: 0.9375rem;">Download this file and place it in the </span><strong style="font-size: 0.9375rem;">3-DevOps/week1/github_collab/</strong><span style="font-size: 0.9375rem;">&nbsp;folder.</span><br></li>
+    </ul>
+</div>
+<p></p>
+<p></p>
+<div class="editor-indent" style="margin-left: 30px;">
+    <div>
+        <p></p>
+    </div>
+    <p></p>
+</div>
+<p></p>
+<div>
+    <p xml:lang="EN-US" lang="EN-US"></p>
+</div>
+<div class="editor-indent" style="margin-left: 30px;">
+    <div>
+        <pre><a href="https://learn.nucamp.co/pluginfile.php/88932/mod_book/chapter/5235/app.zip?time=1633381826165">app.zip</a></pre>
+    </div>
+</div>
+<div>
+    <ul>
+        <li>From the <strong>3-DevOps/week1/github_collab/</strong><strong>&nbsp;</strong>folder in your terminal, enter the following commands to unzip the <strong>app.zip </strong>file, delete the zipfile, and&nbsp;<strong>cd </strong>into
+            the unzipped <strong>app/&nbsp;</strong>directory:</li>
+    </ul>
+</div>
+<div class="editor-indent" style="margin-left: 30px;">
+    <div>
+        <pre class=" language-en"><code class=" language-en">unzip -q app.zip</code></pre>
+    </div>
+    <div>
+        <pre class=" language-en"><code class=" language-en">rm app.zip
+</code></pre>
+        <pre class=" language-en"><code class=" language-en">cd app</code></pre>
+        <p><img src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/image (4).png" alt="" role="presentation" class="img-fluid"></p>
+    </div>
+</div>
+<div>
+    <ul>
+        <li>List the contents of the <strong>app/&nbsp;</strong>folder, and make sure it appears as follows:</li>
+    </ul>
+</div>
+<div class="editor-indent" style="margin-left: 30px;">
+    <div>
+        <pre class=" language-en"><code class=" language-en">ls</code></pre>
+        <img src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/image (9).png" alt="" role="presentation" class="img-fluid">
+    </div>
+</div>
+<div class="editor-indent" style="margin-left: 30px;">
+    <div>
+        <p></p>
+    </div>
+</div>
+<div>
+    <ul>
+        <li>These are the files for a basic Django application that have been provided for you as an example. We will discuss in more detail later what Django is and how it works, but for now, these are simply example files for you to practice Git.&nbsp;</li>
+        <li>Return to the root folder of the local git repository, <strong>github_collab/</strong>:</li>
+    </ul>
+</div>
+<div class="editor-indent" style="margin-left: 30px;">
+    <div>
+        <pre class=" language-en"><code class=" language-en">cd ..</code></pre>
+    </div>
+</div>
+<div>
+    <ul>
+        <li><span data-contrast="auto" xml:lang="EN-US" lang="EN-US" style="font-size: 0.9375rem;">Check the status of the git repository:</span></li>
+    </ul>
+</div>
+<div class="editor-indent" style="margin-left: 30px;">
+    <div>
+        <pre class=" language-en"><code class=" language-en">git status</code></pre>
+    </div>
+</div>
+<div class="editor-indent" style="margin-left: 30px;">
+    <div>
+        <p xml:lang="EN-US" lang="EN-US"><span data-contrast="auto" xml:lang="EN-US" lang="EN-US">&nbsp;</span><img alt="S git Status 
+branch main 
+Your branch is up to date with &#39;origin/main&#39; . 
+untracked fi les: 
+(use &quot;git add 
+app/ 
+to include in what will be committed) 
+nothing added to commit but untracked files present (use &quot;git add&quot; 
+to track) " src="data:image/png;base64,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" style="font-size: 0.9375rem;"></p>
+    </div>
+</div>
+<div>
+    <p xml:lang="EN-US" lang="EN-US"></p>
+    <ul>
+        <ul>
+            <li><span data-contrast="auto" xml:lang="EN-US" lang="EN-US"><span data-contrast="auto" xml:lang="EN-US" lang="EN-US" style="font-size: 0.9375rem;">Notice how the <strong>app/&nbsp;</strong>folder, which includes the Django app files, is listed as untracked files.</span>
+                <span style="font-size: 0.9375rem;">&nbsp;</span>
+                </span>
+            </li>
+        </ul>
+        <li><span data-contrast="auto" xml:lang="EN-US" lang="EN-US" style="font-size: 0.9375rem;">Add, commit and push the Django app files to the remote GitHub repository with the below commands:</span></li>
+    </ul>
+    <p></p>
+</div>
+<div class="editor-indent" style="margin-left: 30px;">
+    <pre class=" language-en"><code class=" language-en">git add .&nbsp;</code></pre>
+    <pre class=" language-en"><code class=" language-en">git commit -m "add&nbsp;django&nbsp;app"&nbsp;</code></pre>
+    <pre class=" language-en"><code class=" language-en">git push&nbsp;</code></pre>
+</div>
+<div class="editor-indent" style="margin-left: 30px;">
+    <div>
+        <p xml:lang="EN-US" lang="EN-US"><img src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/image (10).png" alt="" role="presentation" class="img-fluid"><br></p>
+    </div>
+</div>
+<div>
+    <p xml:lang="EN-US" lang="EN-US"></p>
+    <ul>
+        <li><span data-contrast="auto" xml:lang="EN-US" lang="EN-US">Refresh your GitHub page for the GH_collab repository (https://www.github.com/&lt;yourusername&gt;/GH_collab) in your browser and confirm the&nbsp;<strong>app/&nbsp;</strong>folder and its contents were pushed to the remote repository.</span>&nbsp;</li>
+    </ul>
+    <p></p>
+    <p xml:lang="EN-US" lang="EN-US"><br></p>
+    <h4 style="background:lavender">The .gitignore file</h4>
+    <p xml:lang="EN-US" lang="EN-US"></p>
+    <ul>
+        <li>A hidden file named <strong>.gitignore</strong> is used in Git repositories to prevent specified files and folders from being added to the Git repository automatically.&nbsp;</li>
+        <li>This is useful for various reasons such as security (you would not want to add files that have sensitive data), and to prevent unnecessary files from being added. Some teams prefer not to commit their SQL migrations files, for example.&nbsp;</li>
+        <li>Let's say that for the example project you have in your <strong>app/</strong> folder, the migrations files will be generated in <span style="font-size: 0.9375rem;"><strong>app/helloapp/migrations/</strong>.</span></li>
+        <li>T<span style="font-size: 0.9375rem;">o create a <strong>.gitignore</strong> file that will "ignore" any future generated migrations files for this project, run this command from a bash terminal in the <strong>github_collab/</strong> folder:&nbsp;</span></li>
+    </ul>
+</div>
+<div class="editor-indent" style="margin-left: 30px;">
+    <div>
+        <pre class=" language-en"><code class=" language-en">echo app/helloapp/migrations &gt;&gt; .gitignore</code></pre>
+    </div>
+</div>
+<div>
+    <p></p>
+    <ul>
+        <li>This creates a file named<strong> .gitignore </strong>in your current directory and appends the text <strong>app/helloapp/migrations</strong>&nbsp;in it.&nbsp;</li>
+        <li>This will cause your local Git repository to ignore that directory.</li>
+        <li>To confirm that the <strong>echo</strong>&nbsp;command has worked, enter this command:</li>
+    </ul>
+</div>
+<div class="editor-indent" style="margin-left: 30px;">
+    <div>
+          <pre class=" language-en"><code class=" language-en">cat .gitignore</code></pre>
+    </div>
+</div>
+<div>
+    <p></p>
+    <ul>
+        <li>This prints the contents of the <strong>.gitignore</strong> file to the screen. Confirm that you see this output:</li>
+    </ul>
+    <p></p>
+</div>
+<div class="editor-indent" style="margin-left: 30px;">
+    <div>
+        <p><img src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/image (11).png" alt="" role="presentation" class="img-fluid"></p>
+    </div>
+</div>
+<div>
+    <ul>
+        <li>In preparation for adding a virtual environment folder to this repository, let's add one more line to the<strong> .gitignore</strong> file by running this CLI command in the <strong>github_collab/</strong>&nbsp;folder. This time, it will not
+            create the file because it already exists; instead, it will append the text <strong>venv</strong>&nbsp;to it:</li>
+    </ul>
+</div>
+<div class="editor-indent" style="margin-left: 30px;">
+    <div>
+        <p></p>
+        <div>
+            <div>
+                <pre class=" language-en"><code class=" language-en">echo venv &gt;&gt; .gitignore</code></pre>
+            </div>
+        </div>
+        <p></p>
+    </div>
+</div>
+<div>
+    <ul>
+        <ul>
+        </ul>
+        <li><span data-contrast="auto" xml:lang="EN-US" lang="EN-US">Once again, use the <strong>cat</strong>&nbsp;command to print the contents of the <strong>.gitignore</strong> file and confirm that it appears as follows:</span></li>
+    </ul>
+</div>
+<div class="editor-indent" style="margin-left: 30px;">
+    <div>
+<pre class=" language-en"><code class=" language-en">cat .gitignore</code></pre>
+    </div>
+</div>
+<div class="editor-indent" style="margin-left: 30px;">
+    <div>
+        <p><img src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/image (12).png" alt="" role="presentation" class="img-fluid"></p>
+    </div>
+</div>
+<div>
+    <ul>
+        <li><span data-contrast="auto" xml:lang="EN-US" lang="EN-US">Add, commit, and push the<strong> .gitignore</strong> file:</span></li>
+    </ul>
+</div>
+<div class="editor-indent" style="margin-left: 30px;">
+    <div>
+        <pre class=" language-en"><code class=" language-en">git add .</code></pre>
+    </div>
+    <div>
+        <pre class=" language-en"><code class=" language-en">git commit -m "add .gitignore"</code></pre>
+    </div>
+    <div>
+        <pre class=" language-en"><code class=" language-en">git push</code></pre>
+    </div>
+</div>
+<div>
+    <ul>
+        <li><span style="font-size: 0.9375rem;">Confirm in GitHub that the push was made by refreshing the repository page. You should see the<strong> .gitignore</strong> file there.&nbsp;</span></li>
+    </ul>
+    <p><br></p>
+    <h4 style="background:lavender">Setup complete</h4>
+    <p>Your setup steps are complete for the Git collaboration exercise. Continue on to Part 2!</p>
+    <p><br></p>
+    <p></p>
+    <p></p>
+</div>
+<h3 style="text-align: center;">Additional Resources</h3>
+<p></p>
+<a href="https://github.com/" target="_blank" rel="noreferrer noopener" style="background-color: rgb(255, 255, 255); font-size: 0.9375rem;"></a>
+<ul><a href="https://github.com/" target="_blank" rel="noreferrer noopener" style="background-color: rgb(255, 255, 255); font-size: 0.9375rem;"></a>
+    <li><a href="https://github.com/" target="_blank" rel="noreferrer noopener" style="background-color: rgb(255, 255, 255); font-size: 0.9375rem;"></a><a href="https://github.com/" target="_blank" rel="noreferrer noopener" style="background-color: rgb(255, 255, 255); font-size: 0.9375rem;"><span data-contrast="auto" xml:lang="EN-US" lang="EN-US">GitHub</span></a>
+        <span data-contrast="auto" style="font-size: 0.9375rem;"></span><span style="font-size: 0.9375rem;">&nbsp;<br></span></li>
+    <li><a href="https://git-scm.com/downloads" target="_blank" rel="noreferrer noopener" style="font-size: 0.9375rem; background-color: rgb(255, 255, 255);"><span data-contrast="auto" xml:lang="EN-US" lang="EN-US">Git</span></a><span data-contrast="auto" style="font-size: 0.9375rem;"></span><span style="font-size: 0.9375rem;">&nbsp;<br></span></li>
+    <li><span style="font-size: 0.9375rem;"><a href="https://guides.github.com/introduction/git-handbook/" target="_blank" rel="noreferrer noopener" style="background-color: rgb(255, 255, 255); font-size: 0.9375rem;"><span data-contrast="auto" xml:lang="EN-US" lang="EN-US">Git Handbook</span></a>
+        <span data-contrast="auto" style="font-size: 0.9375rem;"></span><span style="font-size: 0.9375rem;">&nbsp;</span></span>
+    </li>
+</ul><br>
+<ul>
+</ul>
+<p></p></div></div><div class="container-fluid tertiary-navigation">
+    <div class="row">
+            <div class="navitem">
+                <a class="btn btn-secondary" href="https://learn.nucamp.co/mod/book/view.php?id=5104&amp;chapterid=5234">Previous</a>
+            </div>
+            <div class="navitem ml-auto">
+                <a class="btn btn-secondary" href="https://learn.nucamp.co/mod/book/view.php?id=5104&amp;chapterid=5286">Next</a>
+            </div>
+    </div>
+</div><!-- Navbuttons start --><!-- No settings --><!-- Navbuttons end --><script>
+//<![CDATA[
+
+        window.$crisp=[];
+        window.CRISP_WEBSITE_ID='f2d1e610-d3c4-4113-937e-4f8f261feba1';
+        (function(){
+            d=document;
+            s=d.createElement('script');
+            s.src='https://client.crisp.chat/l.js';
+            s.async=1;
+            d.getElementsByTagName('head')[0].appendChild(s);
+        })();
+        
+            (async function() {
+                const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+                await sleep(3000);
+                await $crisp.push(['set', 'user:email', 'chestonh1@gmail.com']);
+                await $crisp.push(['set', 'user:nickname', 'Cheston Hadley']);
+                await $crisp.push(['set', 'session:data', [[['moodleId', '30703'], ['activityType', 'book'], ['activityId', '1028'], ['chapterId', '5235'], ['courseId', '31'], ['url', 'https://learn.nucamp.co/mod/book/view.php?id=5104&amp;chapterid=5235'], ['website', 'learn.nucamp.co']]]]);
+            })()
+    
+//]]>
+</script>
+</div><nav class="activity_footer activity-navigation">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="float-left">
+                <a href="https://learn.nucamp.co/mod/page/view.php?id=5432&amp;forceview=1" id="prev-activity-link" class="previous_activity prevnext"><span class="nav_icon"><i class="fa fa-angle-double-left"></i></span><span class="text"><span class="nav_guide">Previous activity</span><br>VS Code Folders</span></a>
+
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="float-right">
+                <a href="https://learn.nucamp.co/mod/book/view.php?id=5105&amp;forceview=1" id="next-activity-link" class="next_activity prevnext"><span class="text"><span class="nav_guide">Next activity</span><br>Docker Images and Containers</span><span class="nav_icon"><i class="fa fa-angle-double-right"></i></span></a>
+
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="jumpnav">
+    <div class="jumpmenu">
+    <form method="post" action="https://learn.nucamp.co/course/jumpto.php" class="form-inline" id="url_select_f64958896c41167">
+        <input type="hidden" name="sesskey" value="hshYs68HXk">
+            <label for="jump-to-activity" class="sr-only">
+                Jump to...
+            </label>
+        <select id="jump-to-activity" class="custom-select jumpmenu" name="jump">
+                    <option value="" selected="">Jump to...</option>
+                    <option value="/mod/forum/view.php?id=4235&amp;forceview=1">Course Forums</option>
+                    <option value="/mod/wiki/view.php?id=5457&amp;forceview=1">Troubleshooting Wiki</option>
+                    <option value="/mod/choice/view.php?id=5130&amp;forceview=1">Cloud Platforms Use Disclaimer</option>
+                    <option value="/mod/page/view.php?id=5131&amp;forceview=1">Course Content Creators</option>
+                    <option value="/mod/page/view.php?id=6516&amp;forceview=1">Verify your Profile Settings in Learn</option>
+                    <option value="/mod/page/view.php?id=6250&amp;forceview=1">The Nucamp Learning Community Chat Server</option>
+                    <option value="/mod/page/view.php?id=5101&amp;forceview=1">Welcome to Week 1</option>
+                    <option value="/mod/folder/view.php?id=5102&amp;forceview=1">Lesson Slides</option>
+                    <option value="/mod/book/view.php?id=5103&amp;forceview=1">Software Development Methodologies &amp; Lifecycle</option>
+                    <option value="/mod/page/view.php?id=5432&amp;forceview=1">VS Code Folders</option>
+                    <option value="/mod/book/view.php?id=5105&amp;forceview=1">Docker Images and Containers</option>
+                    <option value="/mod/book/view.php?id=5158&amp;forceview=1">The Django Web Framework</option>
+                    <option value="/mod/quiz/view.php?id=5096&amp;forceview=1">Week 1 Quiz</option>
+                    <option value="/mod/feedback/view.php?id=4197&amp;forceview=1">Survey: Self-Assessment</option>
+                    <option value="/mod/assign/view.php?id=4201&amp;forceview=1">Week 1 Workshop Assignment</option>
+                    <option value="/mod/feedback/view.php?id=4205&amp;forceview=1">Week 1 Feedback</option>
+                    <option value="/mod/page/view.php?id=5108&amp;forceview=1">Portfolio Project: Overview</option>
+                    <option value="/mod/forum/view.php?id=5109&amp;forceview=1">Portfolio Project: Report Submission</option>
+                    <option value="/mod/page/view.php?id=5138&amp;forceview=1">TO GRADUATE FROM THE BACKEND WITH PYTHON BOOTCAMP: Certificate Graduation Requirements</option>
+                    <option value="/mod/feedback/view.php?id=5139&amp;forceview=1">FOR THE HONOR GRADUATION: Honor Graduation Requirements</option>
+                    <option value="/mod/url/view.php?id=5140&amp;forceview=1">Link to attend the Graduation</option>
+                    <option value="/mod/page/view.php?id=6254&amp;forceview=1">Nucamp Affiliate Program</option>
+        </select>
+            <noscript>
+                <input type="submit" class="btn btn-secondary ml-1" value="Go">
+            </noscript>
+    </form>
+</div>
+
+</div>            </section>
+        </div>
+
+        <aside id="block-region-side-post" class="col-3 d-print-none  block-region" data-blockregion="side-post" data-droptarget="1"><a class="skip skip-block" id="fsb-1" href="https://learn.nucamp.co/mod/book/view.php?id=5104&amp;chapterid=5235#sb-1">Skip Table of contents</a><section class="block block_book_toc block_fake mb-3" data-block="_fake"><div class="header"><div class="title"><div class="block_action"></div><h2 class="d-inline">Table of contents</h2><div class="block-controls float-right"></div></div></div><div class="content"><div class="book_toc book_toc_numbered clearfix"><ul><li><a title="Why Source Control, Git and GitHub?" class="" href="https://learn.nucamp.co/mod/book/view.php?id=5104&amp;chapterid=5569">1. Why Source Control, Git and GitHub?</a></li><li><a title="Introduction to Team Development" class="" href="https://learn.nucamp.co/mod/book/view.php?id=5104&amp;chapterid=5237">2. Introduction to Team Development</a></li><li><a title="Exercise: Introduction to Git &amp;amp; GitHub" class="" href="https://learn.nucamp.co/mod/book/view.php?id=5104&amp;chapterid=5234">3. Exercise: Introduction to Git &amp; GitHub</a></li><li><strong class="">4. Exercise: Collaborating in Git &amp; GitHub - Part 1: Setup</strong></li><li><a title="Exercise: Collaborating in Git &amp;amp; GitHub - Part 2" class="" href="https://learn.nucamp.co/mod/book/view.php?id=5104&amp;chapterid=5286">5. Exercise: Collaborating in Git &amp; GitHub - Part 2</a></li><li><a title="Exercise: Handling Conflicts" class="" href="https://learn.nucamp.co/mod/book/view.php?id=5104&amp;chapterid=5236">6. Exercise: Handling Conflicts</a></li></ul></div></div></section><span class="skip-block-to" id="sb-1"></span><a class="skip skip-block" id="fsb-2" href="https://learn.nucamp.co/mod/book/view.php?id=5104&amp;chapterid=5235#sb-2">Skip Online users</a><section id="inst69050" class="block_online_users block mb-3" role="complementary" data-block="online_users" data-instanceid="69050" aria-labelledby="instance-69050-header"><div class="header"><div class="title" id="yui_3_17_2_1_1687521431813_35"><div class="block_action"><img class="block-hider-hide" alt="Hide Online users block" src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/switch_minus.svg" tabindex="0" title="Hide Online users block"><img class="block-hider-show" alt="Show Online users block" src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/switch_plus.svg" tabindex="0" title="Show Online users block"></div><h2 class="d-inline" id="instance-69050-header">Online users</h2><div class="block-controls float-right"></div></div></div><div class="content"><div class="info">1 online user (last 1 minutes)</div><ul class="list">
+<li class="listentry"><div class="user"><a href="https://learn.nucamp.co/user/view.php?id=30703&amp;course=31" title="now"><img src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/6fea48ffab10c90bda9fc2ef2762b967(1).png" class="userpicture align-middle defaultuserpic" width="30" height="30" alt="">Cheston Hadley</a></div><div class="uservisibility"><a title="Hide my online status from other users" data-action="hide" data-userid="30703" id="change-user-visibility" href="https://learn.nucamp.co/mod/book/view.php?id=5104&amp;chapterid=5235"><i class="icon fa fa-eye fa-fw " title="Hide my online status from other users" role="img" aria-label="Hide my online status from other users"></i></a></div></li>
+</ul><div class="clearer"><!-- --></div></div></section><span class="skip-block-to" id="sb-2"></span></aside><div id="showsidebaricon" title="Show / hide the sidebar" style="top: 267px;"><i class="fa fa-3x fa-angle-left" aria-hidden="true"></i></div>    </div>
+</div>
+
+<div id="drawer-64958896e3dff64958896c41169" class=" drawer bg-white hidden" aria-expanded="false" aria-hidden="true" data-region="right-hand-drawer" role="region" tabindex="0">
+            <div class="drawer-top p-2 border-bottom bg-messageheader">
+            Messages
+            <a id="message-drawer-close-64958896e3dff64958896c41169" class="pull-right" href="https://learn.nucamp.co/mod/book/view.php?id=5104&amp;chapterid=5235#" role="button">
+                <i class="icon fa fa-window-close fa-fw " title="Toggle messaging drawer" role="img" aria-label="Toggle messaging drawer"></i>
+            </a>
+        </div>
+        <div id="message-drawer-64958896e3dff64958896c41169" class="message-app" data-region="message-drawer" role="region">
+            <div class="header-container position-relative" data-region="header-container">
+                <div class="hidden border-bottom p-1 px-sm-2" aria-hidden="true" data-region="view-contacts">
+                    <div class="d-flex align-items-center">
+                        <div class="align-self-stretch">
+                            <a class="h-100 d-flex align-items-center mr-2" href="https://learn.nucamp.co/mod/book/view.php?id=5104&amp;chapterid=5235#" data-route-back="" role="button">
+                                <div class="icon-back-in-drawer">
+                                    <span class="dir-rtl-hide"><i class="icon fa fa-chevron-left fa-fw " aria-hidden="true"></i></span>
+                                    <span class="dir-ltr-hide"><i class="icon fa fa-chevron-right fa-fw " aria-hidden="true"></i></span>
+                                </div>
+                                <div class="icon-back-in-app">
+                                    <span class="dir-rtl-hide"><i class="icon fa fa-times fa-fw " aria-hidden="true"></i></span>
+                                </div>                            </a>
+                        </div>
+                        <div>
+                            Contacts
+                        </div>
+                        <div class="ml-auto">
+                            <a href="https://learn.nucamp.co/mod/book/view.php?id=5104&amp;chapterid=5235#" data-route="view-search" role="button" aria-label="Search">
+                                <i class="icon fa fa-search fa-fw " aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>                
+                <div class="hidden bg-white position-relative border-bottom p-1 px-sm-2" aria-hidden="true" data-region="view-conversation">
+                    <div class="hidden" data-region="header-content"></div>
+                    <div class="hidden" data-region="header-edit-mode">
+                        
+                        <div class="d-flex p-2 align-items-center">
+                            Messages selected:
+                            <span class="ml-1" data-region="message-selected-court">1</span>
+                            <button type="button" class="ml-auto close" aria-label="Cancel message selection" data-action="cancel-edit-mode">
+                                    <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div data-region="header-placeholder">
+                        <div class="d-flex">
+                            <div class="ml-2 rounded-circle bg-pulse-grey align-self-center" style="height: 38px; width: 38px">
+                            </div>
+                            <div class="ml-2 " style="flex: 1">
+                                <div class="mt-1 bg-pulse-grey w-75" style="height: 16px;">
+                                </div>
+                            </div>
+                            <div class="ml-2 bg-pulse-grey align-self-center" style="height: 16px; width: 20px">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hidden position-absolute z-index-1" data-region="confirm-dialogue-container" style="top: 0; bottom: -1px; right: 0; left: 0; background: rgba(0,0,0,0.3);"></div>
+                </div>                <div class="border-bottom p-1 px-sm-2" aria-hidden="false" data-region="view-overview">
+                    <div class="d-flex align-items-center">
+                        <div class="input-group simplesearchform">
+                            <input type="text" class="form-control" placeholder="Search" aria-label="Search" data-region="view-overview-search-input">
+                            <div class="input-group-append">
+                                <span class="icon-no-margin btn btn-submit">
+                                    <i class="icon fa fa-search fa-fw " aria-hidden="true"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="ml-2">
+                            <a href="https://learn.nucamp.co/mod/book/view.php?id=5104&amp;chapterid=5235#" data-route="view-settings" data-route-param="30703" aria-label="Settings" role="button">
+                                <i class="icon fa fa-cog fa-fw " aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="text-right mt-sm-3">
+                        <a href="https://learn.nucamp.co/mod/book/view.php?id=5104&amp;chapterid=5235#" data-route="view-contacts" role="button">
+                            <i class="icon fa fa-user fa-fw " aria-hidden="true"></i>
+                            Contacts
+                            <span class="badge badge-primary bg-primary ml-2 hidden" data-region="contact-request-count">
+                                <span aria-hidden="true">0</span>
+                                <span class="sr-only">There are 0 pending contact requests</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="hidden border-bottom p-1 px-sm-2 view-search" aria-hidden="true" data-region="view-search">
+                    <div class="d-flex align-items-center">
+                        <a class="mr-2 align-self-stretch d-flex align-items-center" href="https://learn.nucamp.co/mod/book/view.php?id=5104&amp;chapterid=5235#" data-route-back="" data-action="cancel-search" role="button">
+                            <div class="icon-back-in-drawer">
+                                <span class="dir-rtl-hide"><i class="icon fa fa-chevron-left fa-fw " aria-hidden="true"></i></span>
+                                <span class="dir-ltr-hide"><i class="icon fa fa-chevron-right fa-fw " aria-hidden="true"></i></span>
+                            </div>
+                            <div class="icon-back-in-app">
+                                <span class="dir-rtl-hide"><i class="icon fa fa-times fa-fw " aria-hidden="true"></i></span>
+                            </div>                        </a>
+                        <div class="input-group simplesearchform">
+                            <input type="text" class="form-control" placeholder="Search" aria-label="Search" data-region="search-input">
+                            <div class="input-group-append">
+                                <button class="btn btn-submit icon-no-margin" type="button" data-action="search" aria-label="Search">
+                                    <span data-region="search-icon-container">
+                                        <i class="icon fa fa-search fa-fw " aria-hidden="true"></i>
+                                    </span>
+                                    <span class="hidden" data-region="loading-icon-container">
+                                        <span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw " title="Loading" role="img" aria-label="Loading"></i></span>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+                <div class="hidden border-bottom p-1 px-sm-2 pb-sm-3" aria-hidden="true" data-region="view-settings">
+                    <div class="d-flex align-items-center">
+                        <div class="align-self-stretch">
+                            <a class="h-100 d-flex mr-2 align-items-center" href="https://learn.nucamp.co/mod/book/view.php?id=5104&amp;chapterid=5235#" data-route-back="" role="button">
+                                <div class="icon-back-in-drawer">
+                                    <span class="dir-rtl-hide"><i class="icon fa fa-chevron-left fa-fw " aria-hidden="true"></i></span>
+                                    <span class="dir-ltr-hide"><i class="icon fa fa-chevron-right fa-fw " aria-hidden="true"></i></span>
+                                </div>
+                                <div class="icon-back-in-app">
+                                    <span class="dir-rtl-hide"><i class="icon fa fa-times fa-fw " aria-hidden="true"></i></span>
+                                </div>                            </a>
+                        </div>
+                        <div>
+                            Settings
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="body-container position-relative" data-region="body-container">
+                
+                <div class="hidden" data-region="view-contact" aria-hidden="true">
+                    <div class="p-2 pt-3" data-region="content-container"></div>
+                </div>                <div class="hidden h-100" data-region="view-contacts" aria-hidden="true" data-user-id="30703">
+                    <div class="d-flex flex-column h-100">
+                        <div class="p-3 border-bottom">
+                            <ul class="nav nav-pills nav-fill" role="tablist">
+                                <li class="nav-item">
+                                    <a id="contacts-tab-64958896e3dff64958896c41169" class="nav-link active" href="https://learn.nucamp.co/mod/book/view.php?id=5104&amp;chapterid=5235#contacts-tab-panel-64958896e3dff64958896c41169" data-toggle="tab" data-action="show-contacts-section" role="tab" aria-controls="contacts-tab-panel-64958896e3dff64958896c41169" aria-selected="true">
+                                        Contacts
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a id="requests-tab-64958896e3dff64958896c41169" class="nav-link" href="https://learn.nucamp.co/mod/book/view.php?id=5104&amp;chapterid=5235#requests-tab-panel-64958896e3dff64958896c41169" data-toggle="tab" data-action="show-requests-section" role="tab" aria-controls="requests-tab-panel-64958896e3dff64958896c41169" aria-selected="false">
+                                        Requests
+                                        <span class="badge badge-primary bg-primary ml-2 hidden" data-region="contact-request-count">
+                                            <span aria-hidden="true">0</span>
+                                            <span class="sr-only">There are 0 pending contact requests</span>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-content d-flex flex-column h-100">
+                                            <div class="tab-pane fade show active h-100 lazy-load-list" aria-live="polite" data-region="lazy-load-list" data-user-id="30703" id="contacts-tab-panel-64958896e3dff64958896c41169" data-section="contacts" role="tabpanel" aria-labelledby="contacts-tab-64958896e3dff64958896c41169">
+                    
+                    <div class="hidden text-center p-2" data-region="empty-message-container">
+                        No contacts
+                    </div>
+                    <div class="hidden list-group" data-region="content-container">
+                        
+                    </div>
+                    <div class="list-group" data-region="placeholder-container">
+                                            <div class="p-2 d-flex list-group-item border-0" data-region="placeholder">
+                        <div class="rounded-circle bg-pulse-grey" style="height: 38px; width: 38px">
+                        </div>
+                        <div class="ml-2 bg-pulse-grey w-50" style="height: 20px;">
+                        </div>
+                    </div>
+                    </div>
+                    <div class="w-100 text-center p-3 hidden" data-region="loading-icon-container">
+                        <span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw " title="Loading" role="img" aria-label="Loading"></i></span>
+                    </div>
+                </div>
+                
+                                            <div class="tab-pane fade h-100 lazy-load-list" aria-live="polite" data-region="lazy-load-list" data-user-id="30703" id="requests-tab-panel-64958896e3dff64958896c41169" data-section="requests" role="tabpanel" aria-labelledby="requests-tab-64958896e3dff64958896c41169">
+                    
+                    <div class="hidden text-center p-2" data-region="empty-message-container">
+                        No contact requests
+                    </div>
+                    <div class="hidden list-group" data-region="content-container">
+                        
+                    </div>
+                    <div class="list-group" data-region="placeholder-container">
+                        
+                    </div>
+                    <div class="w-100 text-center p-3 hidden" data-region="loading-icon-container">
+                        <span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw " title="Loading" role="img" aria-label="Loading"></i></span>
+                    </div>
+                </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="view-conversation hidden h-100" aria-hidden="true" data-region="view-conversation" data-user-id="30703" data-midnight="1687492800" data-message-poll-min="10" data-message-poll-max="120" data-message-poll-after-max="300" style="overflow-y: auto; overflow-x: hidden">
+                    <div class="position-relative h-100" data-region="content-container" style="overflow-y: auto; overflow-x: hidden">
+                        <div class="content-message-container hidden h-100 px-2 pt-0" data-region="content-message-container" role="log" style="overflow-y: auto; overflow-x: hidden">
+                            <div class="py-3 sticky-top z-index-1 border-bottom text-center hidden" data-region="contact-request-sent-message-container">
+                                <p class="m-0">Contact request sent</p>
+                                <p class="font-italic font-weight-light" data-region="text"></p>
+                            </div>
+                            <div class="p-3 text-center hidden" data-region="self-conversation-message-container">
+                                <p class="m-0">Personal space</p>
+                                <p class="font-italic font-weight-light" data-region="text">Save draft messages, links, notes etc. to access later.</p>
+                           </div>
+                            <div class="hidden text-center p-3" data-region="more-messages-loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw " title="Loading" role="img" aria-label="Loading"></i></span>
+</div>
+                        </div>
+                        <div class="p-4 w-100 h-100 hidden position-absolute z-index-1" data-region="confirm-dialogue-container" style="top: 0; background: rgba(0,0,0,0.3);">
+                            
+                            <div class="p-3 bg-white" data-region="confirm-dialogue" role="alert">
+                                <p class="text-muted" data-region="dialogue-text"></p>
+                                <div class="mb-2 custom-control custom-checkbox hidden" data-region="delete-messages-for-all-users-toggle-container">
+                                    <input type="checkbox" class="custom-control-input" id="delete-messages-for-all-users" data-region="delete-messages-for-all-users-toggle">
+                                    <label class="custom-control-label text-muted" for="delete-messages-for-all-users">
+                                        Delete for me and for everyone else
+                                    </label>
+                                </div>
+                                <button type="button" class="btn btn-primary btn-block hidden" data-action="confirm-block">
+                                    <span data-region="dialogue-button-text">Block</span>
+                                    <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw " title="Loading" role="img" aria-label="Loading"></i></span>
+</span>
+                                </button>
+                                <button type="button" class="btn btn-primary btn-block hidden" data-action="confirm-unblock">
+                                    <span data-region="dialogue-button-text">Unblock</span>
+                                    <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw " title="Loading" role="img" aria-label="Loading"></i></span>
+</span>
+                                </button>
+                                <button type="button" class="btn btn-primary btn-block hidden" data-action="confirm-remove-contact">
+                                    <span data-region="dialogue-button-text">Remove</span>
+                                    <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw " title="Loading" role="img" aria-label="Loading"></i></span>
+</span>
+                                </button>
+                                <button type="button" class="btn btn-primary btn-block hidden" data-action="confirm-add-contact">
+                                    <span data-region="dialogue-button-text">Add</span>
+                                    <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw " title="Loading" role="img" aria-label="Loading"></i></span>
+</span>
+                                </button>
+                                <button type="button" class="btn btn-primary btn-block hidden" data-action="confirm-delete-selected-messages">
+                                    <span data-region="dialogue-button-text">Delete</span>
+                                    <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw " title="Loading" role="img" aria-label="Loading"></i></span>
+</span>
+                                </button>
+                                <button type="button" class="btn btn-primary btn-block hidden" data-action="confirm-delete-conversation">
+                                    <span data-region="dialogue-button-text">Delete</span>
+                                    <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw " title="Loading" role="img" aria-label="Loading"></i></span>
+</span>
+                                </button>
+                                <button type="button" class="btn btn-primary btn-block hidden" data-action="request-add-contact">
+                                    <span data-region="dialogue-button-text">Send contact request</span>
+                                    <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw " title="Loading" role="img" aria-label="Loading"></i></span>
+</span>
+                                </button>
+                                <button type="button" class="btn btn-primary btn-block hidden" data-action="accept-contact-request">
+                                    <span data-region="dialogue-button-text">Accept and add to contacts</span>
+                                    <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw " title="Loading" role="img" aria-label="Loading"></i></span>
+</span>
+                                </button>
+                                <button type="button" class="btn btn-secondary btn-block hidden" data-action="decline-contact-request">
+                                    <span data-region="dialogue-button-text">Decline</span>
+                                    <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw " title="Loading" role="img" aria-label="Loading"></i></span>
+</span>
+                                </button>
+                                <button type="button" class="btn btn-primary btn-block" data-action="okay-confirm">OK</button>
+                                <button type="button" class="btn btn-secondary btn-block" data-action="cancel-confirm">Cancel</button>
+                            </div>
+                        </div>
+                        <div class="px-2 pb-2 pt-0" data-region="content-placeholder">
+                            <div class="h-100 d-flex flex-column">
+                                <div class="px-2 pb-2 pt-0 bg-light h-100" style="overflow-y: auto">
+                                    <div class="mt-4">
+                                        <div class="mb-4">
+                                            <div class="mx-auto bg-white" style="height: 25px; width: 100px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                    </div>                                    <div class="mt-4">
+                                        <div class="mb-4">
+                                            <div class="mx-auto bg-white" style="height: 25px; width: 100px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                    </div>                                    <div class="mt-4">
+                                        <div class="mb-4">
+                                            <div class="mx-auto bg-white" style="height: 25px; width: 100px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                    </div>                                    <div class="mt-4">
+                                        <div class="mb-4">
+                                            <div class="mx-auto bg-white" style="height: 25px; width: 100px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                    </div>                                    <div class="mt-4">
+                                        <div class="mb-4">
+                                            <div class="mx-auto bg-white" style="height: 25px; width: 100px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                    </div>                                </div>
+                            </div>                        </div>
+                    </div>
+                </div>
+                
+                <div class="hidden" aria-hidden="true" data-region="view-group-info">
+                    <div class="pt-3 h-100 d-flex flex-column" data-region="group-info-content-container" style="overflow-y: auto"></div>
+                </div>                <div class="h-100 view-overview-body" aria-hidden="false" data-region="view-overview" data-user-id="30703">
+                    <div id="message-drawer-view-overview-container-64958896e3dff64958896c41169" class="d-flex flex-column h-100" style="overflow-y: auto">
+                            
+                            
+                            <div class="section border-0 card rounded-0" data-region="view-overview-favourites">
+                                <div id="view-overview-favourites-toggle" class="card-header rounded-0" data-region="toggle">
+                                    <button class="btn btn-link w-100 text-left p-1 p-sm-2 d-flex rounded-0 align-items-center overview-section-toggle collapsed" data-toggle="collapse" data-target="#view-overview-favourites-target-64958896e3dff64958896c41169" aria-expanded="false" aria-controls="view-overview-favourites-target-64958896e3dff64958896c41169">
+                                        <span class="collapsed-icon-container">
+                                            <i class="icon fa fa-caret-right fa-fw " aria-hidden="true"></i>
+                                        </span>
+                                        <span class="expanded-icon-container">
+                                            <i class="icon fa fa-caret-down fa-fw " aria-hidden="true"></i>
+                                        </span>
+                                        <span class="font-weight-bold">Starred</span>
+                                        <small class="hidden ml-1" data-region="section-total-count-container">
+                                            (<span aria-hidden="true" data-region="section-total-count"></span><span class="sr-only"> total conversations</span>)
+                                        </small>
+                                        <span class="hidden ml-2" data-region="loading-icon-container">
+                                            <span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw " title="Loading" role="img" aria-label="Loading"></i></span>
+                                        </span>
+                                        <span class="hidden badge badge-pill badge-primary ml-auto bg-primary" data-region="section-unread-count">
+                                            <span aria-hidden="true"></span>
+                                            <span class="sr-only">There are  unread conversations</span>
+                                        </span>
+                                    </button>
+                                </div>
+                                                            <div class="collapse border-bottom  lazy-load-list" aria-live="polite" data-region="lazy-load-list" data-user-id="30703" id="view-overview-favourites-target-64958896e3dff64958896c41169" aria-labelledby="view-overview-favourites-toggle" data-parent="#message-drawer-view-overview-container-64958896e3dff64958896c41169">
+                                
+                                <div class="hidden text-center p-2" data-region="empty-message-container">
+                                            <p class="text-muted mt-2">No starred conversations</p>
+
+                                </div>
+                                <div class="hidden list-group" data-region="content-container">
+                                    
+                                </div>
+                                <div class="list-group" data-region="placeholder-container">
+                                            <div class="text-center py-2"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw " title="Loading" role="img" aria-label="Loading"></i></span>
+</div>
+
+                                </div>
+                                <div class="w-100 text-center p-3 hidden" data-region="loading-icon-container">
+                                    <span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw " title="Loading" role="img" aria-label="Loading"></i></span>
+                                </div>
+                            </div>
+                            </div>
+                            
+                            
+                            <div class="section border-0 card rounded-0" data-region="view-overview-group-messages">
+                                <div id="view-overview-group-messages-toggle" class="card-header rounded-0" data-region="toggle">
+                                    <button class="btn btn-link w-100 text-left p-1 p-sm-2 d-flex rounded-0 align-items-center overview-section-toggle collapsed" data-toggle="collapse" data-target="#view-overview-group-messages-target-64958896e3dff64958896c41169" aria-expanded="false" aria-controls="view-overview-group-messages-target-64958896e3dff64958896c41169">
+                                        <span class="collapsed-icon-container">
+                                            <i class="icon fa fa-caret-right fa-fw " aria-hidden="true"></i>
+                                        </span>
+                                        <span class="expanded-icon-container">
+                                            <i class="icon fa fa-caret-down fa-fw " aria-hidden="true"></i>
+                                        </span>
+                                        <span class="font-weight-bold">Group</span>
+                                        <small class="hidden ml-1" data-region="section-total-count-container">
+                                            (<span aria-hidden="true" data-region="section-total-count"></span><span class="sr-only"> total conversations</span>)
+                                        </small>
+                                        <span class="hidden ml-2" data-region="loading-icon-container">
+                                            <span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw " title="Loading" role="img" aria-label="Loading"></i></span>
+                                        </span>
+                                        <span class="hidden badge badge-pill badge-primary ml-auto bg-primary" data-region="section-unread-count">
+                                            <span aria-hidden="true"></span>
+                                            <span class="sr-only">There are  unread conversations</span>
+                                        </span>
+                                    </button>
+                                </div>
+                                                            <div class="collapse border-bottom  lazy-load-list" aria-live="polite" data-region="lazy-load-list" data-user-id="30703" id="view-overview-group-messages-target-64958896e3dff64958896c41169" aria-labelledby="view-overview-group-messages-toggle" data-parent="#message-drawer-view-overview-container-64958896e3dff64958896c41169">
+                                
+                                <div class="hidden text-center p-2" data-region="empty-message-container">
+                                            <p class="text-muted mt-2">No group conversations</p>
+
+                                </div>
+                                <div class="hidden list-group" data-region="content-container">
+                                    
+                                </div>
+                                <div class="list-group" data-region="placeholder-container">
+                                            <div class="text-center py-2"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw " title="Loading" role="img" aria-label="Loading"></i></span>
+</div>
+
+                                </div>
+                                <div class="w-100 text-center p-3 hidden" data-region="loading-icon-container">
+                                    <span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw " title="Loading" role="img" aria-label="Loading"></i></span>
+                                </div>
+                            </div>
+                            </div>
+                            
+                            
+                            <div class="section border-0 card rounded-0" data-region="view-overview-messages">
+                                <div id="view-overview-messages-toggle" class="card-header rounded-0" data-region="toggle">
+                                    <button class="btn btn-link w-100 text-left p-1 p-sm-2 d-flex rounded-0 align-items-center overview-section-toggle collapsed" data-toggle="collapse" data-target="#view-overview-messages-target-64958896e3dff64958896c41169" aria-expanded="false" aria-controls="view-overview-messages-target-64958896e3dff64958896c41169">
+                                        <span class="collapsed-icon-container">
+                                            <i class="icon fa fa-caret-right fa-fw " aria-hidden="true"></i>
+                                        </span>
+                                        <span class="expanded-icon-container">
+                                            <i class="icon fa fa-caret-down fa-fw " aria-hidden="true"></i>
+                                        </span>
+                                        <span class="font-weight-bold">Private</span>
+                                        <small class="hidden ml-1" data-region="section-total-count-container">
+                                            (<span aria-hidden="true" data-region="section-total-count"></span><span class="sr-only"> total conversations</span>)
+                                        </small>
+                                        <span class="hidden ml-2" data-region="loading-icon-container">
+                                            <span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw " title="Loading" role="img" aria-label="Loading"></i></span>
+                                        </span>
+                                        <span class="hidden badge badge-pill badge-primary ml-auto bg-primary" data-region="section-unread-count">
+                                            <span aria-hidden="true"></span>
+                                            <span class="sr-only">There are  unread conversations</span>
+                                        </span>
+                                    </button>
+                                </div>
+                                                            <div class="collapse border-bottom  lazy-load-list" aria-live="polite" data-region="lazy-load-list" data-user-id="30703" id="view-overview-messages-target-64958896e3dff64958896c41169" aria-labelledby="view-overview-messages-toggle" data-parent="#message-drawer-view-overview-container-64958896e3dff64958896c41169">
+                                
+                                <div class="hidden text-center p-2" data-region="empty-message-container">
+                                            <p class="text-muted mt-2">No private conversations</p>
+
+                                </div>
+                                <div class="hidden list-group" data-region="content-container">
+                                    
+                                </div>
+                                <div class="list-group" data-region="placeholder-container">
+                                            <div class="text-center py-2"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw " title="Loading" role="img" aria-label="Loading"></i></span>
+</div>
+
+                                </div>
+                                <div class="w-100 text-center p-3 hidden" data-region="loading-icon-container">
+                                    <span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw " title="Loading" role="img" aria-label="Loading"></i></span>
+                                </div>
+                            </div>
+                            </div>
+                    </div>
+                </div>
+                
+                <div data-region="view-search" aria-hidden="true" class="h-100 hidden" data-user-id="30703" data-users-offset="0" data-messages-offset="0" style="overflow-y: auto">
+                    <div class="hidden" data-region="search-results-container" style="overflow-y: auto">
+                        
+                        <div class="d-flex flex-column">
+                            <div class="mb-3 bg-white" data-region="all-contacts-container">
+                                <div data-region="contacts-container" class="pt-2">
+                                    <h4 class="h6 px-2">Contacts</h4>
+                                    <div class="list-group" data-region="list"></div>
+                                </div>
+                                <div data-region="non-contacts-container" class="pt-2 border-top">
+                                    <h4 class="h6 px-2">Non-contacts</h4>
+                                    <div class="list-group" data-region="list"></div>
+                                </div>
+                                <div class="text-right">
+                                    <button class="btn btn-link text-primary" data-action="load-more-users">
+                                        <span data-region="button-text">Load more</span>
+                                        <span data-region="loading-icon-container" class="hidden"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw " title="Loading" role="img" aria-label="Loading"></i></span>
+</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="bg-white" data-region="messages-container">
+                                <h4 class="h6 px-2 pt-2">Messages</h4>
+                                <div class="list-group" data-region="list"></div>
+                                <div class="text-right">
+                                    <button class="btn btn-link text-primary" data-action="load-more-messages">
+                                        <span data-region="button-text">Load more</span>
+                                        <span data-region="loading-icon-container" class="hidden"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw " title="Loading" role="img" aria-label="Loading"></i></span>
+</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <p class="hidden p-3 text-center" data-region="no-results-container">No results</p>
+                        </div>                    </div>
+                    <div class="hidden" data-region="loading-placeholder">
+                        <div class="text-center pt-3 icon-size-4"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw " title="Loading" role="img" aria-label="Loading"></i></span>
+</div>
+                    </div>
+                    <div class="p-3 text-center" data-region="empty-message-container">
+                        <p>Search people and messages</p>
+                    </div>
+                </div>                
+                <div class="h-100 hidden bg-white" aria-hidden="true" data-region="view-settings">
+                    <div class="hidden" data-region="content-container">
+                        
+                        <div data-region="settings" class="p-3">
+                            <h3 class="h6 font-weight-bold">Privacy</h3>
+                            <p>You can restrict who can message you</p>
+                            <div data-preference="blocknoncontacts" class="mb-3">
+                                <fieldset>
+                                    <legend class="sr-only">Accept messages from:</legend>
+                                        <div class="custom-control custom-radio mb-2">
+                                            <input type="radio" name="message_blocknoncontacts" class="custom-control-input" id="block-noncontacts-64958896e3dff64958896c41169-1" value="1">
+                                            <label class="custom-control-label ml-2" for="block-noncontacts-64958896e3dff64958896c41169-1">
+                                                My contacts only
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio mb-2">
+                                            <input type="radio" name="message_blocknoncontacts" class="custom-control-input" id="block-noncontacts-64958896e3dff64958896c41169-0" value="0">
+                                            <label class="custom-control-label ml-2" for="block-noncontacts-64958896e3dff64958896c41169-0">
+                                                My contacts and anyone in my courses
+                                            </label>
+                                        </div>
+                                </fieldset>
+                            </div>
+                        
+                            <div class="hidden" data-region="notification-preference-container">
+                                <h3 class="mb-2 mt-4 h6 font-weight-bold">Notification preferences</h3>
+                            </div>
+                        
+                            <h3 class="mb-2 mt-4 h6 font-weight-bold">General</h3>
+                            <div data-preference="entertosend">
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="enter-to-send-64958896e3dff64958896c41169">
+                                    <label class="custom-control-label" for="enter-to-send-64958896e3dff64958896c41169">
+                                        Use enter to send
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-region="placeholder-container">
+                        
+                        <div class="d-flex flex-column p-3">
+                            <div class="w-25 bg-pulse-grey h6" style="height: 18px"></div>
+                            <div class="w-75 bg-pulse-grey mb-4" style="height: 18px"></div>
+                            <div class="mb-3">
+                                <div class="w-100 d-flex mb-3">
+                                    <div class="bg-pulse-grey rounded-circle" style="width: 18px; height: 18px"></div>
+                                    <div class="bg-pulse-grey w-50 ml-2" style="height: 18px"></div>
+                                </div>
+                                <div class="w-100 d-flex mb-3">
+                                    <div class="bg-pulse-grey rounded-circle" style="width: 18px; height: 18px"></div>
+                                    <div class="bg-pulse-grey w-50 ml-2" style="height: 18px"></div>
+                                </div>
+                                <div class="w-100 d-flex mb-3">
+                                    <div class="bg-pulse-grey rounded-circle" style="width: 18px; height: 18px"></div>
+                                    <div class="bg-pulse-grey w-50 ml-2" style="height: 18px"></div>
+                                </div>
+                            </div>
+                            <div class="w-50 bg-pulse-grey h6 mb-3 mt-2" style="height: 18px"></div>
+                            <div class="mb-4">
+                                <div class="w-100 d-flex mb-2 align-items-center">
+                                    <div class="bg-pulse-grey w-25" style="width: 18px; height: 27px"></div>
+                                    <div class="bg-pulse-grey w-25 ml-2" style="height: 18px"></div>
+                                </div>
+                                <div class="w-100 d-flex mb-2 align-items-center">
+                                    <div class="bg-pulse-grey w-25" style="width: 18px; height: 27px"></div>
+                                    <div class="bg-pulse-grey w-25 ml-2" style="height: 18px"></div>
+                                </div>
+                            </div>
+                            <div class="w-25 bg-pulse-grey h6 mb-3 mt-2" style="height: 18px"></div>
+                            <div class="mb-3">
+                                <div class="w-100 d-flex mb-2 align-items-center">
+                                    <div class="bg-pulse-grey w-25" style="width: 18px; height: 27px"></div>
+                                    <div class="bg-pulse-grey w-50 ml-2" style="height: 18px"></div>
+                                </div>
+                            </div>
+                        </div>                    </div>
+                </div>            </div>
+            <div class="footer-container position-relative" data-region="footer-container">
+                
+                <div class="hidden border-top bg-white position-relative" aria-hidden="true" data-region="view-conversation" data-enter-to-send="0">
+                    <div class="hidden p-sm-2" data-region="content-messages-footer-container">
+                        
+                            <div class="emoji-auto-complete-container w-100 hidden" data-region="emoji-auto-complete-container" aria-live="polite" aria-hidden="true">
+                            </div>
+                        <div class="d-flex mt-sm-1">
+                            <textarea dir="auto" data-region="send-message-txt" class="form-control bg-light" rows="3" data-auto-rows="" data-min-rows="3" data-max-rows="5" aria-label="Write a message..." placeholder="Write a message..." style="resize: none" maxlength="4096"></textarea>
+                        
+                            <div class="position-relative d-flex flex-column">
+                                    <div data-region="emoji-picker-container" class="emoji-picker-container hidden" aria-hidden="true">
+                                        
+                                        <div data-region="emoji-picker" class="card shadow emoji-picker">
+                                            <div class="card-header px-1 pt-1 pb-0 d-flex justify-content-between flex-shrink-0">
+                                                <button class="btn btn-outline-secondary icon-no-margin category-button rounded-0 selected" data-action="show-category" data-category="Recent" title="Recent">
+                                                    <i class="icon fa fa-clock-o fa-fw " aria-hidden="true"></i>
+                                                </button>
+                                                <button class="btn btn-outline-secondary icon-no-margin category-button rounded-0" data-action="show-category" data-category="Smileys &amp; Emotion" title="Smileys &amp; emotion">
+                                                    <i class="icon fa fa-smile-o fa-fw " aria-hidden="true"></i>
+                                                </button>
+                                                <button class="btn btn-outline-secondary icon-no-margin category-button rounded-0" data-action="show-category" data-category="People &amp; Body" title="People &amp; body">
+                                                    <i class="icon fa fa-male fa-fw " aria-hidden="true"></i>
+                                                </button>
+                                                <button class="btn btn-outline-secondary icon-no-margin category-button rounded-0" data-action="show-category" data-category="Animals &amp; Nature" title="Animals &amp; nature">
+                                                    <i class="icon fa fa-leaf fa-fw " aria-hidden="true"></i>
+                                                </button>
+                                                <button class="btn btn-outline-secondary icon-no-margin category-button rounded-0" data-action="show-category" data-category="Food &amp; Drink" title="Food &amp; drink">
+                                                    <i class="icon fa fa-cutlery fa-fw " aria-hidden="true"></i>
+                                                </button>
+                                                <button class="btn btn-outline-secondary icon-no-margin category-button rounded-0" data-action="show-category" data-category="Travel &amp; Places" title="Travel &amp; places">
+                                                    <i class="icon fa fa-plane fa-fw " aria-hidden="true"></i>
+                                                </button>
+                                                <button class="btn btn-outline-secondary icon-no-margin category-button rounded-0" data-action="show-category" data-category="Activities" title="Activities">
+                                                    <i class="icon fa fa-futbol-o fa-fw " aria-hidden="true"></i>
+                                                </button>
+                                                <button class="btn btn-outline-secondary icon-no-margin category-button rounded-0" data-action="show-category" data-category="Objects" title="Objects">
+                                                    <i class="icon fa fa-lightbulb-o fa-fw " aria-hidden="true"></i>
+                                                </button>
+                                                <button class="btn btn-outline-secondary icon-no-margin category-button rounded-0" data-action="show-category" data-category="Symbols" title="Symbols">
+                                                    <i class="icon fa fa-heart fa-fw " aria-hidden="true"></i>
+                                                </button>
+                                                <button class="btn btn-outline-secondary icon-no-margin category-button rounded-0" data-action="show-category" data-category="Flags" title="Flags">
+                                                    <i class="icon fa fa-flag fa-fw " aria-hidden="true"></i>
+                                                </button>
+                                            </div>
+                                            <div class="card-body p-2 d-flex flex-column overflow-hidden">
+                                                <div class="input-group mb-1 flex-shrink-0">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text pr-0 bg-white text-muted">
+                                                            <i class="icon fa fa-search fa-fw " aria-hidden="true"></i>
+                                                        </span>
+                                                    </div>
+                                                    <input type="text" class="form-control border-left-0" placeholder="Search" aria-label="Search" data-region="search-input">
+                                                </div>
+                                                <div class="flex-grow-1 overflow-auto emojis-container h-100" data-region="emojis-container">
+                                                    <div class="position-relative" data-region="row-container"></div>
+                                                </div>
+                                                <div class="flex-grow-1 overflow-auto search-results-container h-100 hidden" data-region="search-results-container">
+                                                    <div class="position-relative" data-region="row-container"></div>
+                                                </div>
+                                            </div>
+                                            <div class="card-footer d-flex flex-shrink-0" data-region="footer">
+                                                <div class="emoji-preview" data-region="emoji-preview"></div>
+                                                <div data-region="emoji-short-name" class="emoji-short-name text-muted text-wrap ml-2"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-link btn-icon icon-size-3 ml-1" aria-label="Toggle emoji picker" data-action="toggle-emoji-picker">
+                                        <i class="icon fa fa-smile-o fa-fw " aria-hidden="true"></i>
+                                    </button>
+                                <button class="btn btn-link btn-icon icon-size-3 ml-1 mt-auto" aria-label="Send message" data-action="send-message">
+                                    <span data-region="send-icon-container"><i class="icon fa fa-paper-plane fa-fw " aria-hidden="true"></i></span>
+                                    <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw " title="Loading" role="img" aria-label="Loading"></i></span>
+</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hidden p-sm-2" data-region="content-messages-footer-edit-mode-container">
+                        
+                        <div class="d-flex p-3 justify-content-end">
+                            <button class="btn btn-link btn-icon my-1 icon-size-4" data-action="delete-selected-messages" data-toggle="tooltip" data-placement="top" title="Delete selected messages">
+                                <span data-region="icon-container"><i class="icon fa fa-trash fa-fw " aria-hidden="true"></i></span>
+                                <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw " title="Loading" role="img" aria-label="Loading"></i></span>
+</span>
+                                <span class="sr-only">Delete selected messages</span>
+                            </button>
+                        </div>                    </div>
+                    <div class="hidden bg-secondary p-sm-3" data-region="content-messages-footer-require-contact-container">
+                        
+                        <div class="p-3 bg-white">
+                            <p data-region="title"></p>
+                            <p class="text-muted" data-region="text"></p>
+                            <button type="button" class="btn btn-primary btn-block" data-action="request-add-contact">
+                                <span data-region="dialogue-button-text">Send contact request</span>
+                                <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw " title="Loading" role="img" aria-label="Loading"></i></span>
+</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="hidden bg-secondary p-sm-3" data-region="content-messages-footer-require-unblock-container">
+                        
+                        <div class="p-3 bg-white">
+                            <p class="text-muted" data-region="text">You have blocked this user.</p>
+                            <button type="button" class="btn btn-primary btn-block" data-action="request-unblock">
+                                <span data-region="dialogue-button-text">Unblock user</span>
+                                <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw " title="Loading" role="img" aria-label="Loading"></i></span>
+</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="hidden bg-secondary p-sm-3" data-region="content-messages-footer-unable-to-message">
+                        
+                        <div class="p-3 bg-white">
+                            <p class="text-muted" data-region="text">You are unable to message this user</p>
+                        </div>
+                    </div>
+                    <div class="p-sm-2" data-region="placeholder-container">
+                        <div class="d-flex">
+                            <div class="bg-pulse-grey w-100" style="height: 80px"></div>
+                            <div class="mx-2 mb-2 align-self-end bg-pulse-grey" style="height: 20px; width: 20px"></div>
+                        </div>                    </div>
+                    <div class="hidden position-absolute z-index-1" data-region="confirm-dialogue-container" style="top: -1px; bottom: 0; right: 0; left: 0; background: rgba(0,0,0,0.3);"></div>
+                </div>                    <div data-region="view-overview" class="text-center">
+                        <a href="https://learn.nucamp.co/message/index.php">
+                            See all
+                        </a>
+                    </div>
+            </div>
+        </div>
+
+</div>
+<footer id="page-footer" class="d-none d-lg-block">
+
+<div id="course-footer"></div><div class="container"><div class="row"><div class="col-12 pagination-centered socialicons"><a target="_blank" title="Facebook" href="https://www.facebook.com/nucamp.co/"><i class="fa fa-facebook-square
+"></i></a><a target="_blank" title="LinkedIn" href="https://www.linkedin.com/school/nucamp/"><i class="fa fa-linkedin-square
+"></i></a><a target="_blank" title="Instagram" href="https://www.instagram.com/nucampcodingbootcamp/"><i class="fa fa-instagram"></i></a></div></div></div>    <div class="info container2 clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="tool_usertours-resettourcontainer"></div>
+                                <div class="col-md-4 my-md-0 my-2">
+                    <div class="tool_dataprivacy"><a href="https://learn.nucamp.co/admin/tool/dataprivacy/summary.php">Data retention summary</a></div><a href="https://download.moodle.org/mobile?version=2022112801&amp;lang=en&amp;iosappid=633359593&amp;androidappid=com.moodle.moodlemobile">Get the mobile app</a>                </div>
+            </div>
+            <div class="row"><div class="col-12 my-md-0 my-2"></div>        </div>
+    </div>
+</div></footer>
+
+<div id="back-to-top" style="display: block;"><i class="fa fa-angle-up "></i></div>
+
+</div></div>
+<script type="text/javascript" src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/nucamp.js.download"></script>
+<script>
+//<![CDATA[
+var require = {
+    baseUrl : 'https://learn.nucamp.co/lib/requirejs.php/1687113448/',
+    // We only support AMD modules with an explicit define() statement.
+    enforceDefine: true,
+    skipDataMain: true,
+    waitSeconds : 0,
+
+    paths: {
+        jquery: 'https://learn.nucamp.co/lib/javascript.php/1687113448/lib/jquery/jquery-3.6.1.min',
+        jqueryui: 'https://learn.nucamp.co/lib/javascript.php/1687113448/lib/jquery/ui-1.13.2/jquery-ui.min',
+        jqueryprivate: 'https://learn.nucamp.co/lib/javascript.php/1687113448/lib/requirejs/jquery-private'
+    },
+
+    // Custom jquery config map.
+    map: {
+      // '*' means all modules will get 'jqueryprivate'
+      // for their 'jquery' dependency.
+      '*': { jquery: 'jqueryprivate' },
+      // Stub module for 'process'. This is a workaround for a bug in MathJax (see MDL-60458).
+      '*': { process: 'core/first' },
+
+      // 'jquery-private' wants the real jQuery module
+      // though. If this line was not here, there would
+      // be an unresolvable cyclic dependency.
+      jqueryprivate: { jquery: 'jquery' }
+    }
+};
+
+//]]>
+</script>
+<script src="./Team Development with Git_ Exercise_ Collaborating in Git &amp; GitHub - Part 1_ Setup_files/javascript(3).php"></script>
+<script>
+//<![CDATA[
+M.util.js_pending("core/first");
+require(['core/first'], function() {
+require(['core/prefetch'])
+;
+require(["media_videojs/loader"], function(loader) {
+    loader.setUp('en');
+});;
+M.util.js_pending('theme_adaptable/adaptable'); require(['theme_adaptable/adaptable'], function(amd) {amd.init(); M.util.js_complete('theme_adaptable/adaptable');});;
+M.util.js_pending('theme_adaptable/bsoptions'); require(['theme_adaptable/bsoptions'], function(amd) {amd.init({"stickynavbar":true}); M.util.js_complete('theme_adaptable/bsoptions');});;
+M.util.js_pending('theme_adaptable/drawer'); require(['theme_adaptable/drawer'], function(amd) {amd.init(); M.util.js_complete('theme_adaptable/drawer');});;
+M.util.js_pending('block_online_users/change_user_visibility'); require(['block_online_users/change_user_visibility'], function(amd) {amd.init(); M.util.js_complete('block_online_users/change_user_visibility');});;
+M.util.js_pending('theme_adaptable/zoomin'); require(['theme_adaptable/zoomin'], function(amd) {amd.init(); M.util.js_complete('theme_adaptable/zoomin');});;
+
+require(
+[
+    'jquery',
+],
+function(
+    $
+) {
+    var uniqid = "64958896d04da64958896c41162";
+    var container = $('#searchinput-navbar-' + uniqid);
+    var opensearch = container.find('[data-action="opensearch"]');
+    var input = container.find('[data-region="input"]');
+    var submit = container.find('[data-action="submit"]');
+
+    submit.on('click', function(e) {
+        if (input.val() === '') {
+            e.preventDefault();
+        }
+    });
+    container.on('hidden.bs.collapse', function() {
+        opensearch.removeClass('d-none');
+        input.val('');
+    });
+    container.on('show.bs.collapse', function() {
+        opensearch.addClass('d-none');
+    });
+    container.on('shown.bs.collapse', function() {
+        input.focus();
+    });
+});
+;
+
+require(['jquery', 'message_popup/notification_popover_controller'], function($, Controller) {
+    var container = $('#nav-notification-popover-container');
+    var controller = new Controller(container);
+    controller.registerEventListeners();
+    controller.registerListNavigationEventListeners();
+});
+;
+
+require(
+[
+    'jquery',
+    'core_message/message_popover'
+],
+function(
+    $,
+    Popover
+) {
+    var toggle = $('#message-drawer-toggle-64958896d468664958896c41164');
+    Popover.init(toggle);
+});
+;
+M.util.js_pending('core_courseformat/local/content/activity_header'); require(['core_courseformat/local/content/activity_header'], function(amd) {amd.init(); M.util.js_complete('core_courseformat/local/content/activity_header');});;
+
+        require(['jquery', 'core/custom_interaction_events'], function($, CustomEvents) {
+            CustomEvents.define('#jump-to-activity', [CustomEvents.events.accessibleChange]);
+            $('#jump-to-activity').on(CustomEvents.events.accessibleChange, function() {
+                if (!$(this).val()) {
+                    return false;
+                }
+                $('#url_select_f64958896c41167').submit();
+            });
+        });
+    ;
+M.util.js_pending('theme_adaptable/showsidebar'); require(['theme_adaptable/showsidebar'], function(amd) {amd.init(); M.util.js_complete('theme_adaptable/showsidebar');});;
+
+require(['jquery', 'core_message/message_drawer', 'core_message/message_popover'], function($, MessageDrawer, Popover) {
+    var root = $('#message-drawer-64958896e3dff64958896c41169');
+    MessageDrawer.init(root);
+
+    var toggle = $('#message-drawer-close-64958896e3dff64958896c41169');
+    Popover.init(toggle);
+});
+;
+
+require(['jquery'], function($) {
+    $('.tag_list .tagmorelink').click(function(e) {
+        e.preventDefault();
+        $(this).closest('.tag_list').removeClass('hideoverlimit');
+    });
+    $('.tag_list .taglesslink').click(function(e) {
+        e.preventDefault();
+        $(this).closest('.tag_list').addClass('hideoverlimit');
+    });
+});
+;
+M.util.js_pending('core/notification'); require(['core/notification'], function(amd) {amd.init(88932, []); M.util.js_complete('core/notification');});;
+M.util.js_pending('core/log'); require(['core/log'], function(amd) {amd.setConfig({"level":"warn"}); M.util.js_complete('core/log');});;
+M.util.js_pending('core/page_global'); require(['core/page_global'], function(amd) {amd.init(); M.util.js_complete('core/page_global');});;
+M.util.js_pending('core/utility'); require(['core/utility'], function(amd) {M.util.js_complete('core/utility');});
+    M.util.js_complete("core/first");
+});
+//]]>
+</script>
+<script>
+//<![CDATA[
+M.str = {"moodle":{"lastmodified":"Last modified","name":"Name","error":"Error","info":"Information","yes":"Yes","no":"No","cancel":"Cancel","confirm":"Confirm","areyousure":"Are you sure?","closebuttontitle":"Close","unknownerror":"Unknown error","file":"File","url":"URL","collapseall":"Collapse all","expandall":"Expand all"},"repository":{"type":"Type","size":"Size","invalidjson":"Invalid JSON string","nofilesattached":"No files attached","filepicker":"File picker","logout":"Logout","nofilesavailable":"No files available","norepositoriesavailable":"Sorry, none of your current repositories can return files in the required format.","fileexistsdialogheader":"File exists","fileexistsdialog_editor":"A file with that name has already been attached to the text you are editing.","fileexistsdialog_filemanager":"A file with that name has already been attached","renameto":"Rename to \"{$a}\"","referencesexist":"There are {$a} links to this file","select":"Select"},"admin":{"confirmdeletecomments":"You are about to delete comments, are you sure?","confirmation":"Confirmation"},"availability_password":{"enterpassword":"Enter password","wrongpassword":"Password incorrect","passwordintro":"Access to <em>{$a}<\/em> is protected with a password.<br \/>If you do not know the password, please ask your teacher.","passwordprotection":"Password protection"},"core":{"submit":"Submit","cancel":"Cancel"},"debug":{"debuginfo":"Debug info","line":"Line","stacktrace":"Stack trace"},"langconfig":{"labelsep":": "}};
+//]]>
+</script>
+<script>
+//<![CDATA[
+(function() {Y.use("moodle-filter_mathjaxloader-loader",function() {M.filter_mathjaxloader.configure({"mathjaxconfig":"\nMathJax.Hub.Config({\n    config: [\"Accessible.js\", \"Safe.js\"],\n    errorSettings: { message: [\"!\"] },\n    skipStartupTypeset: true,\n    messageStyle: \"none\"\n});\n","lang":"en"});
+});
+M.util.help_popups.setup(Y);
+Y.use("moodle-availability_password-popup",function() {M.availability_password.popup.init();
+});
+M.util.init_block_hider(Y, {"id":"inst69050","title":"Online users","preference":"block69050hidden","tooltipVisible":"Hide Online users block","tooltipHidden":"Show Online users block"});
+ M.util.js_pending('random64958896c411610'); Y.on('domready', function() { M.util.js_complete("init");  M.util.js_complete('random64958896c411610'); });
+})();
+//]]>
+</script>
+<script type="text/javascript">
+    M.util.js_pending('theme_boost/loader');
+        require(['theme_boost/loader'], function() {
+        M.util.js_complete('theme_boost/loader');
+    });
+</script>
+
+
+<div aria-live="polite" class="crisp-client"><div class="cc-1s47"><div class="cc-1kpe"><style type="text/css">.crisp-client *:focus-visible {
+  outline-color: #431840 !important;
+}
+
+.crisp-client .cc-tlyw .cc-1v0h {
+  color: #ffffff !important;
+}
+
+.crisp-client .cc-tlyw .cc-uv5q {
+  color: #A83EA2 !important;
+}
+
+.crisp-client .cc-tlyw .cc-1cu8 {
+  background-color: #ffffff !important;
+}
+
+.crisp-client .cc-tlyw .cc-ycwi {
+  background-color: #431840 !important;
+}
+
+.crisp-client .cc-tlyw .cc-18qu {
+  background-color: #8e3489 !important;
+}
+
+.crisp-client .cc-tlyw .cc-qfnu {
+  background-color: #A83EA2 !important;
+}
+
+.crisp-client .cc-tlyw .cc-qfnu *:focus-visible {
+  outline-color: #F0F2F5 !important;
+}
+
+.crisp-client .cc-tlyw .cc-1ms5 {
+  background-color: #EFF5FE !important;
+}
+
+.crisp-client .cc-tlyw .cc-1r50 {
+  background-color: #F0F2F5 !important;
+}
+
+.crisp-client .cc-tlyw .cc-zkg3 {
+  border-color: #ffffff !important;
+}
+
+.crisp-client .cc-tlyw .cc-ut0j,
+.crisp-client .cc-tlyw .cc-dpkb:hover {
+  border-color: #A83EA2 !important;
+}
+
+.crisp-client .cc-tlyw .cc-zg42 {
+  border-color: rgba(168, 62, 162, 0.2) !important;
+}
+
+.crisp-client .cc-tlyw .cc-1sel {
+  border-bottom-color: #A83EA2 !important;
+}
+
+.crisp-client .cc-tlyw .cc-jf4n::placeholder {
+  color: #d24dca !important;
+}
+
+.crisp-client .cc-tlyw .cc-4upc::placeholder {
+  color: #d24dca !important;
+}
+
+.crisp-client .cc-tlyw .cc-f23s,
+.crisp-client .cc-tlyw .cc-f23s:active,
+.crisp-client .cc-tlyw .cc-eugx:hover .cc-1una,
+.crisp-client .cc-tlyw .cc-eugx .cc-1una:active {
+  background: #431840 !important;
+}
+
+.crisp-client .cc-tlyw .cc-1oci,
+.crisp-client .cc-tlyw .cc-a691:hover,
+.crisp-client .cc-tlyw .cc-jf9n[data-active="true"] .cc-1lnv {
+  background: #752b71 !important;
+}
+
+.crisp-client .cc-tlyw .cc-f23s:hover,
+.crisp-client .cc-tlyw .cc-1oci:hover,
+.crisp-client .cc-tlyw .cc-a691:active {
+  background: #5c2259 !important;
+}
+
+.crisp-client .cc-tlyw .cc-1oci:active {
+  background: #431840 !important;
+}
+
+.crisp-client .cc-tlyw .cc-raer:hover .cc-y80i {
+  background: #752b71 !important;
+}
+
+.crisp-client .cc-tlyw .cc-raer .cc-y80i:active {
+  background: #5c2259 !important;
+}
+
+.crisp-client .cc-tlyw .cc-1t4x,
+.crisp-client .cc-tlyw .cc-pyh5:hover .cc-13te,
+.crisp-client .cc-tlyw .cc-pyh5 .cc-13te:active {
+  background: #A83EA2 !important;
+}
+
+.crisp-client .cc-tlyw .cc-1t4x:hover {
+  background: #8e3489 !important;
+}
+
+.crisp-client .cc-tlyw .cc-1t4x:active {
+  background: #752b71 !important;
+}
+
+.crisp-client .cc-tlyw .cc-14b7::selection,
+.crisp-client .cc-tlyw .cc-14b7 *::selection {
+  color: #1c293b !important;
+  background-color: #e253da !important;
+}</style></div><div class="cc-15aw"><style type="text/css">.crisp-client .cc-tlyw {
+  z-index: 1000000;
+}</style></div><div class="cc-17eb"><style type="text/css">.crisp-client .cc-tlyw[data-full-view="false"][data-position-reverse="false"] .cc-kxkl .cc-nsge,
+.crisp-client .cc-tlyw[data-full-view="false"][data-position-reverse="false"] .cc-kxkl .cc-1hqb {
+  margin-right: 24px !important;
+}
+
+.crisp-client .cc-tlyw[data-full-view="false"][data-position-reverse="false"] .cc-kxkl .cc-nsge .cc-ujvn .cc-1fs0 {
+  margin-right: 24px !important;
+}
+
+.crisp-client .cc-tlyw[data-full-view="false"][data-position-reverse="true"] .cc-kxkl .cc-nsge,
+.crisp-client .cc-tlyw[data-full-view="false"][data-position-reverse="true"] .cc-kxkl .cc-1hqb {
+  margin-left: 24px !important;
+}
+
+.crisp-client .cc-tlyw[data-full-view="false"][data-position-reverse="true"] .cc-kxkl .cc-nsge .cc-ujvn .cc-1fs0 {
+  margin-left: 24px !important;
+}
+</style><style type="text/css">.crisp-client .cc-tlyw[data-full-view="false"] .cc-kxkl .cc-nsge,
+.crisp-client .cc-tlyw[data-full-view="false"] .cc-kxkl .cc-1hqb {
+  margin-bottom: 35px !important;
+}
+
+.crisp-client .cc-tlyw[data-full-view="false"] .cc-kxkl .cc-nsge .cc-ujvn .cc-1fs0 {
+  margin-bottom: 35px !important;
+}
+</style></div></div><div id="crisp-chatbox" lang="en" dir="ltr" translate="no" tabindex="-1" class="cc-tlyw" data-hidden="false" data-force-show="false" data-availability="online" data-lock-maximized="false" data-last-operator-face="false" data-ongoing-operator-face="false" data-availability-tooltip="false" data-hide-vacation="false" data-blocked="false" data-mobile-view="true" data-full-view="true" data-small-view="true" data-large-view="false" data-has-local-messages="false" data-was-availability-online="true" data-is-activity-ongoing="false" data-hide-on-away="false" data-hide-on-mobile="false" data-position-reverse="false"><div class="cc-kxkl cc-14b7"><a data-maximized="false" data-is-failure="false" class="cc-nsge" tabindex="0" role="button" aria-label="Open chat" data-pane-animate-entrance="false"><span class="cc-ujvn"><!--v-if--></span><span class="cc-imbb cc-qfnu"><span data-id="chat_closed" data-is-ongoing="false" class="cc-11f2"><span class="cc-15e7"><!--v-if--></span></span></span></a></div></div></div></body></html>
